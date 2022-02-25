@@ -6,7 +6,6 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $password = sha1($password);
-$college_name = $_POST['college_name'];
 $gender = $_POST['gender'];
 
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -24,7 +23,7 @@ if ($row_count != 0) {
     return;
 }
 
-$sql = "INSERT INTO users (email, password, full_name, phone, gender, college_name) VALUES ('$email', '$password', '$full_name', '$phone', '$gender', '$college_name')";
+$sql = "INSERT INTO users (email, password, full_name, phone, gender) VALUES ('$email', '$password', '$full_name', '$phone', '$gender')";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     $response = array("success" => false, "message" => "Something went wrong!");

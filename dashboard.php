@@ -37,7 +37,7 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard | PG Life</title>
+    <title>PG Life</title>
 
     <?php
     include "includes/head_links.php";
@@ -73,7 +73,6 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
                         <div class="name"><?= $user['full_name'] ?></div>
                         <div class="email"><?= $user['email'] ?></div>
                         <div class="phone"><?= $user['phone'] ?></div>
-                        <div class="college"><?= $user['college_name'] ?></div>
                     </div>
                     <div class="edit">
                         <div class="edit-profile">Edit Profile</div>
@@ -100,7 +99,7 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
                         </div>
                         <div class="content-container col-md-8">
                             <div class="row no-gutters justify-content-between">
-                                <?php
+                                <!-- <?php
                                 $total_rating = ($property['rating_clean'] + $property['rating_food'] + $property['rating_safety']) / 3;
                                 $total_rating = round($total_rating, 1);
                                 ?>
@@ -123,7 +122,7 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
                                         }
                                     }
                                     ?>
-                                </div>
+                                </div> -->
                                 <div class="interested-container">
                                     <i class="is-interested-image fas fa-heart" property_id="<?= $property['id'] ?>"></i>
                                 </div>
@@ -137,13 +136,9 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
                                     ?>
                                         <img src="img/male.png">
                                     <?php
-                                    } elseif ($property['gender'] == "female") {
-                                    ?>
-                                        <img src="img/female.png">
-                                    <?php
                                     } else {
                                     ?>
-                                        <img src="img/unisex.png">
+                                        <img src="img/female.png">
                                     <?php
                                     }
                                     ?>

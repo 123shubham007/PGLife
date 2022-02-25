@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 require "../includes/database_connect.php";
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
-$city_name = $_GET["city"];
+$city_name = $_GET["name"];
 
 $sql_1 = "SELECT * FROM cities WHERE name = '$city_name'";
 $result_1 = mysqli_query($conn, $sql_1);
