@@ -11,26 +11,26 @@ $user_id = $_SESSION['user_id'];
 $sql_1 = "SELECT * FROM users WHERE id = $user_id";
 $result_1 = mysqli_query($conn, $sql_1);
 if (!$result_1) {
-    echo "Something went wrong!";
+    echo "Something went wrong!123";
     return;
 }
 $user = mysqli_fetch_assoc($result_1);
 if (!$user) {
-    echo "Something went wrong!";
+    echo "Something went wrong!456";
     return;
 }
 
-$sql_2 = "SELECT * 
-            FROM interested_users_properties iup
-            INNER JOIN properties p ON iup.property_id = p.id
-            WHERE iup.user_id = $user_id";
-$result_2 = mysqli_query($conn, $sql_2);
-if (!$result_2) {
-    echo "Something went wrong!";
-    return;
-}
-$interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
-?>
+// $sql_2 = "SELECT * 
+//             FROM interested_users_properties iup
+//             INNER JOIN properties p ON iup.property_id = p.id
+//             WHERE iup.user_id = $user_id";
+// $result_2 = mysqli_query($conn, $sql_2);
+// if (!$result_2) {
+//     echo "Something went wrong!789";
+//     return;
+// }
+// $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
+// ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +82,7 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <?php
+    <!-- <?php
     if (count($interested_properties) > 0) {
     ?>
         <div class="my-interested-properties">
@@ -162,7 +162,7 @@ $interested_properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
         </div>
     <?php
     }
-    ?>
+    ?> -->
 
     <?php
     include "includes/footer.php";
