@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require "includes/database_connect.php";
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PG Life</title>
-    <?php
-    include "includes/head_links.php";
-    ?>
-    <link href="css/property_list.css" rel="stylesheet" />
-</head>
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
+// $city_name = $_GET["city"];
 
-<body>
+$sql_1 = "SELECT * FROM properties";
+$result_1 = mysqli_query($conn, $sql_1);
+if (!$result_1) {
+    echo "Something went wrong!123";
+    return;
+}
+$properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
+?>
     <div class="page-container">
         <div class="filter-bar row justify-content-around">
             <div class="col-auto" data-toggle="modal" data-target="#filter-modal">
@@ -27,33 +28,47 @@
             </div>
         </div>
 
-
-        <div class="property-card property-id-# row">
-            <div class="image-container col-md-4">
-                <img src="#" />
-            </div>
-            <div class="content-container col-md-8">
-
-                <div class="detail-container">
-                    <div class="property-name">Sona Boys</div>
-                    <div class="property-address">UPES</div>
-                    <div class="property-gender">
-                        <img src="img/male.png" />
+        <?php
+        foreach ($properties as $property) {
+            $property_images = glob("img/properties/" . $property['id'] . "/*");
+        ?>
+            <div class="property-card property-id-<?= $property['id'] ?> row">
+                <div class="image-container col-md-4">
+                    <img src="<?= $property_images[0] ?>" />
+                </div>
+                <div class="content-container col-md-8">
+                    
+                    <div class="detail-container">
+                        <div class="property-name"><?= $property['name'] ?></div>
+                        <div class="property-address"><?= $property['address'] ?></div>
+                        <div class="property-gender">
+                            <?php
+                            if ($property['gender'] == "Male") {
+                            ?>
+                                <img src="img/male.png" />
+                            <?php
+                            } else {
+                            ?>
+                                <img src="img/female.png" />
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="rent-container col-6">
+                            <div class="rent">₹ <?= number_format($property['rent']) ?>/-</div>
+                            <div class="rent-unit">per month</div>
+                        </div>
+                        <div class="button-container col-6">
+                            <a href="hostel.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">View</a>
+                        </div>
                     </div>
                 </div>
-                <div class="row no-gutters">
-                    <div class="rent-container col-6">
-                        <div class="rent">₹ 13000/-</div>
-                        <div class="rent-unit">per month</div>
-                    </div>
-                    <div class="button-container col-6">
-                        <!-- <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">View</a> -->
-                        <a href="property_detail.php" class="btn btn-primary">View</a>
-                    </div>
-                </div>
             </div>
-        </div>
-
+        <?php
+        }
+        ?>
     </div>
 
     <div class="modal fade" id="filter-modal" tabindex="-1" role="dialog" aria-labelledby="filter-heading" aria-hidden="true">
@@ -87,6 +102,3 @@
         </div>
     </div>
     <script type="text/javascript" src="js/property_list.js"></script>
-</body>
-
-</html>

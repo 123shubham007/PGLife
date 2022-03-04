@@ -11,7 +11,7 @@ $gender = $_POST['gender'];
 $sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
-    $response = array("success" => false, "message" => "Something went wrong!");
+    $response = array("success" => false, "message" => "Something went wrong!123");
     echo json_encode($response);
     return;
 }

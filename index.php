@@ -39,8 +39,7 @@ session_start();
     <!-- Hostels list -->
     <div>
         <?php
-        $file = file_get_contents('property_list.php');
-        echo $file;
+        include "property_list.php";
         ?>
     </div>
     <?php

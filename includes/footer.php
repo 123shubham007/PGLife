@@ -12,7 +12,7 @@
                 <a href="https://www.upes.ac.in/" target="blank">UPES</a>
             </div>
             <div class="footer-city">
-                <a href="https://in.linkedin.com/school/upesdehradun/" target="blank">Linkdin</a>
+                <a href="https://in.linkedin.com/school/upesdehradun/" target="blank">LinkdIn</a>
             </div>
         </div>
         <div class="footer-copyright">Minor Project </div>
