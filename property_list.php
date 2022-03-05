@@ -61,7 +61,7 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                             <div class="rent-unit">per month</div>
                         </div>
                         <div class="button-container col-6">
-                            <a href="hostel.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">View</a>
+                            <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>

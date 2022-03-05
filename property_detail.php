@@ -1,9 +1,43 @@
+<?php
+session_start();
+require "includes/database_connect.php";
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
+$property_id = $_GET["property_id"];
+
+$sql_1 = "SELECT * FROM properties WHERE id = $property_id";
+
+$result_1 = mysqli_query($conn, $sql_1);
+if (!$result_1) {
+    echo "Something went wrong!456";
+    return;
+}
+$property = mysqli_fetch_assoc($result_1);
+if (!$property) {
+    echo "Something went wrong!123";
+    return;
+}
+
+$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.name 
+             FROM properties p 
+             INNER JOIN amenities a 
+             ON p.id = a.id 
+             WHERE a.id = $property_id";
+
+$result_3 = mysqli_query($conn, $sql_3);
+if (!$result_3) {
+    echo "Something went wrong!555";
+    return;
+}
+$amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PG Life</title>
+    <title><?= $property['name']; ?> | PG Life</title>
 
     <?php
     include "includes/head_links.php";
@@ -16,10 +50,21 @@
     include "includes/header.php";
     ?>
 
-    <!-- <div id="property-images" class="carousel slide" data-ride="carousel">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb py-2">
+            <li class="breadcrumb-item">
+                <a href="index.php">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <?= $property['name']; ?>
+            </li>
+        </ol>
+    </nav>
+
+    <div id="property-images" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php
-            $property_images = glob("img/properties/" . $property['property_id'] . "/*");
+            $property_images = glob("img/properties/" . $property['id'] . "/*");
             foreach ($property_images as $index => $property_image) {
             ?>
                 <li data-target="#property-images" data-slide-to="<?= $index ?>" class="<?= $index == 0 ? "active" : ""; ?>"></li>
@@ -46,21 +91,29 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div> -->
+    </div>
 
     <div class="property-summary page-container">
         <div class="detail-container">
-            <div class="property-name">Sona Boys</div>
-            <div class="property-address">UPES</div>
+            <div class="property-name"><?= $property['name'] ?></div>
+            <div class="property-address"><?= $property['address'] ?></div>
             <div class="property-gender">
-
-                <img src="img/male.png">
-
+                <?php
+                if ($property['gender'] == "Male") {
+                ?>
+                    <img src="img/male.png">
+                <?php
+                } else{
+                ?>
+                    <img src="img/female.png">
+                <?php
+                }
+                ?>
             </div>
         </div>
         <div class="row no-gutters">
             <div class="rent-container col-6">
-                <div class="rent">₹ 13000/-</div>
+                <div class="rent">₹ <?= number_format($property['rent']) ?>/-</div>
                 <div class="rent-unit">per month</div>
             </div>
             <div class="button-container col-6">
@@ -75,192 +128,70 @@
             <div class="row justify-content-between">
                 <div class="col-md-auto">
                     <h5>Building</h5>
-                    <div class="amenity-container">
-                        <img src="img/amenities/lift.svg">
-                        <span>Lift</span>
-                    </div>
-                    <div class="amenity-container">
-                        <img src="img/amenities/cctv.svg">
-                        <span>CCTV</span>
-                    </div>
-                    <div class="amenity-container">
-                        <img src="img/amenities/powerbackup.svg">
-                        <span>Power Backup</span>
-                    </div>
+                    <?php
+                    foreach ($amenities as $amenity) {
+                        if ($amenity['type'] == "Building") {
+                    ?>
+                            <div class="amenity-container">
+                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <span><?= $amenity['name'] ?></span>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div class="col-md-auto">
                     <h5>Common Area</h5>
-                    <div class="amenity-container">
-                        <img src="img/amenities/dining.svg">
-                        <span>Dining Hall</span>
-                    </div>
+                    <?php
+                    foreach ($amenities as $amenity) {
+                        if ($amenity['type'] == "Common Area") {
+                    ?>
+                            <div class="amenity-container">
+                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <span><?= $amenity['name'] ?></span>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div class="col-md-auto">
                     <h5>Bedroom</h5>
-                    <div class="amenity-container">
-                        <img src="img/amenities/wifi.svg">
-                        <span>WIFI</span>
-                    </div>
+                    <?php
+                    foreach ($amenities as $amenity) {
+                        if ($amenity['type'] == "Bedroom") {
+                    ?>
+                            <div class="amenity-container">
+                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <span><?= $amenity['name'] ?></span>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div class="col-md-auto">
                     <h5>Washroom</h5>
-                    <div class="amenity-container">
-                        <img src="img/amenities/geyser.svg">
-                        <span>Geyser</span>
-                    </div>
-
+                    <?php
+                    foreach ($amenities as $amenity) {
+                        if ($amenity['type'] == "Washroom") {
+                    ?>
+                            <div class="amenity-container">
+                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <span><?= $amenity['name'] ?></span>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <div class="property-about page-container">
-        <h1>About the Property</h1>
-        <p><?= $property['description'] ?></p>
-    </div>
-
-    <div class="property-rating">
-        <div class="page-container">
-            <h1>Property Rating</h1>
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-6">
-                    <div class="rating-criteria row">
-                        <div class="col-6">
-                            <i class="rating-criteria-icon fas fa-broom"></i>
-                            <span class="rating-criteria-text">Cleanliness</span>
-                        </div>
-                        <div class="rating-criteria-star-container col-6" title="<?= $property['rating_clean'] ?>">
-                            <?php
-                            $rating = $property['rating_clean'];
-                            for ($i = 0; $i < 5; $i++) {
-                                if ($rating >= $i + 0.8) {
-                            ?>
-                                    <i class="fas fa-star"></i>
-                                <?php
-                                } elseif ($rating >= $i + 0.3) {
-                                ?>
-                                    <i class="fas fa-star-half-alt"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="far fa-star"></i>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-
-                    <div class="rating-criteria row">
-                        <div class="col-6">
-                            <i class="rating-criteria-icon fas fa-utensils"></i>
-                            <span class="rating-criteria-text">Food Quality</span>
-                        </div>
-                        <div class="rating-criteria-star-container col-6" title="<?= $property['rating_food'] ?>">
-                            <?php
-                            $rating = $property['rating_food'];
-                            for ($i = 0; $i < 5; $i++) {
-                                if ($rating >= $i + 0.8) {
-                            ?>
-                                    <i class="fas fa-star"></i>
-                                <?php
-                                } elseif ($rating >= $i + 0.3) {
-                                ?>
-                                    <i class="fas fa-star-half-alt"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="far fa-star"></i>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-
-                    <div class="rating-criteria row">
-                        <div class="col-6">
-                            <i class="rating-criteria-icon fa fa-lock"></i>
-                            <span class="rating-criteria-text">Safety</span>
-                        </div>
-                        <div class="rating-criteria-star-container col-6" title="<?= $property['rating_safety'] ?>">
-                            <?php
-                            $rating = $property['rating_safety'];
-                            for ($i = 0; $i < 5; $i++) {
-                                if ($rating >= $i + 0.8) {
-                            ?>
-                                    <i class="fas fa-star"></i>
-                                <?php
-                                } elseif ($rating >= $i + 0.3) {
-                                ?>
-                                    <i class="fas fa-star-half-alt"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="far fa-star"></i>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="rating-circle">
-                        <?php
-                        $total_rating = ($property['rating_clean'] + $property['rating_food'] + $property['rating_safety']) / 3;
-                        $total_rating = round($total_rating, 1);
-                        ?>
-                        <div class="total-rating"><?= $total_rating ?></div>
-                        <div class="rating-circle-star-container">
-                            <?php
-                            $rating = $total_rating;
-                            for ($i = 0; $i < 5; $i++) {
-                                if ($rating >= $i + 0.8) {
-                            ?>
-                                    <i class="fas fa-star"></i>
-                                <?php
-                                } elseif ($rating >= $i + 0.3) {
-                                ?>
-                                    <i class="fas fa-star-half-alt"></i>
-                                <?php
-                                } else {
-                                ?>
-                                    <i class="far fa-star"></i>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="property-testimonials page-container">
-        <h1>What people say</h1>
-        <?php
-        foreach ($testimonials as $testimonial) {
-        ?>
-            <div class="testimonial-block">
-                <div class="testimonial-image-container">
-                    <img class="testimonial-img" src="img/man.png">
-                </div>
-                <div class="testimonial-text">
-                    <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    <p><?= $testimonial['content'] ?></p>
-                </div>
-                <div class="testimonial-name">- <?= $testimonial['user_name'] ?></div>
-            </div>
-        <?php
-        }
-        ?>
-    </div> -->
 
     <?php
     include "includes/signup_modal.php";
