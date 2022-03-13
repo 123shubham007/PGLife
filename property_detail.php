@@ -103,7 +103,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 ?>
                     <img src="img/male.png">
                 <?php
-                } else{
+                } else {
                 ?>
                     <img src="img/female.png">
                 <?php
@@ -117,7 +117,20 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 <div class="rent-unit">per month</div>
             </div>
             <div class="button-container col-6">
-                <a href="#" class="btn btn-primary">Book Now</a>
+
+                <?php
+                //Check if user is loging or not
+                if ($user_id != NULL) {
+                ?>
+                    <a class="btn btn-primary" href="booking.php?property_id=<?= $property['id'] ?>">Book Now</a>
+                <?php
+                } else {
+                ?>
+                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#login-modal">Book Now</a>
+                <?php
+                }
+                ?>
+
             </div>
         </div>
     </div>
