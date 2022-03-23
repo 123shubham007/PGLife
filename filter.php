@@ -3,28 +3,20 @@ session_start();
 require "includes/database_connect.php";
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
-$city_name = $_GET["city"];
+$filter = $_GET["filter"];
 
-$sql_1 = "SELECT * FROM properties WHERE `name` = '$city_name'";
-$result_1 = mysqli_query($conn, $sql_1);
-if (!$result_1) {
-    echo "Something went wrong!123";
-    return;
-}
-$city = mysqli_fetch_assoc($result_1);
-if (!$city) {
-    echo "Sorry! We do not have any PG listed in this city.";
-    return;
-}
-$city_id = $city['id'];
+$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.facility 
+            FROM amenities a
+            INNER JOIN properties p
+            ON a.id = p.id 
+            WHERE a.facility = '$filter';";
 
-$sql_2 = "SELECT * FROM properties WHERE id = $city_id";
-$result_2 = mysqli_query($conn, $sql_2);
-if (!$result_2) {
-    echo "Something went wrong!456";
+$result_3 = mysqli_query($conn, $sql_3);
+if (!$result_3) {
+    echo "---Something went wrong!---";
     return;
 }
-$properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
+$properties = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -81,14 +73,6 @@ $properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php
-        }
-
-        if (count($properties) == 0) {
-        ?>
-            <div class="no-property-container">
-                <p>No PG to list</p>
             </div>
         <?php
         }

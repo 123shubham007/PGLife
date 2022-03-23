@@ -40,6 +40,12 @@
                     to register a new account
                 </span>
             </div>
+            <div class="modal-footer">
+                <span>
+                    <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#admin-modal">Click here</a>
+                    to register as a new admin
+                </span>
+            </div>
         </div>
     </div>
 </div>

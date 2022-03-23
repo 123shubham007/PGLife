@@ -18,7 +18,7 @@ if (!$property) {
     return;
 }
 
-$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.name 
+$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.facility 
              FROM properties p 
              INNER JOIN amenities a 
              ON p.id = a.id 
@@ -122,7 +122,11 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 //Check if user is loging or not
                 if ($user_id != NULL) {
                 ?>
-                    <a class="btn btn-primary" href="booking.php?property_id=<?= $property['id'] ?>">Book Now</a>
+                    <div class="filter-bar row justify-content-around">
+                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#filter-modal">
+                            <span>Generate Token</span>
+                        </button>
+                    </div>
                 <?php
                 } else {
                 ?>
@@ -146,7 +150,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                         if ($amenity['type'] == "Building") {
                     ?>
                             <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
                                 <span><?= $amenity['name'] ?></span>
                             </div>
                     <?php
@@ -162,7 +166,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                         if ($amenity['type'] == "Common Area") {
                     ?>
                             <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
                                 <span><?= $amenity['name'] ?></span>
                             </div>
                     <?php
@@ -178,7 +182,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                         if ($amenity['type'] == "Bedroom") {
                     ?>
                             <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
                                 <span><?= $amenity['name'] ?></span>
                             </div>
                     <?php
@@ -194,7 +198,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                         if ($amenity['type'] == "Washroom") {
                     ?>
                             <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['name'] ?>.svg">
+                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
                                 <span><?= $amenity['name'] ?></span>
                             </div>
                     <?php
@@ -206,9 +210,26 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </div>
     </div>
 
+    <div class="modal fade" id="filter-modal" tabindex="-1" role="dialog" aria-labelledby="filter-heading" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="justify-content:center;">
+                        <span>Token Generated</span>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <a href="booking.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">Okay</a>
+                    <button class="btn btn-primary" >Okay</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
     <?php
     include "includes/signup_modal.php";
     include "includes/login_modal.php";
+    include "includes/token_modal.php";
     include "includes/footer.php";
     ?>
 
