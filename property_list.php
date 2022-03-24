@@ -94,14 +94,20 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                         <button class="btn btn-outline-dark" id="filter" name="filter" value="parking">
                             Parking
                         </button>
-                        <button class="btn btn-outline-dark" id="filter" name="filter" value="single bed">
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="bed">
                             Single Bed
                         </button>
                         <button class="btn btn-outline-dark" id="filter" name="filter" value="double bed">
                             Double Bed
                         </button>
-                        <button class="btn btn-outline-dark" id="filter" name="filter" value="triple bed">
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="triple sharing">
                             Triple Bed
+                        </button>
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="ac">
+                            AC
+                        </button>
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="gym">
+                            Gym
                         </button>
                     </div>
                 </form>
