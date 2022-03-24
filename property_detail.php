@@ -229,7 +229,6 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <?php
     include "includes/signup_modal.php";
     include "includes/login_modal.php";
-    include "includes/token_modal.php";
     include "includes/footer.php";
     ?>
 

@@ -17,14 +17,14 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
             <img src="img/filter.png" alt="filter" />
             <span>Filter</span>
         </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
             <img src="img/desc.png" alt="sort-asc" />
             <span>Highest rent first</span>
         </div>
         <div class="col-auto">
             <img src="img/asc.png" alt="sort-desc" />
             <span>Lowest rent first</span>
-        </div>
+        </div> -->
     </div>
 
     <?php
@@ -74,7 +74,7 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="filter-heading">Filters</h3>
+                <h3 class="modal-title" id="filter-heading">Amenities Filter</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -82,8 +82,6 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
 
             <div class="modal-body">
                 <form id="search-form" action="filter.php" method="GET">
-                    <h5>Amenities</h5>
-                    <hr />
                     <div style="justify-content:center;">
                         <button class="btn btn-outline-dark" id="filter" name="filter" value="lift">
                             Lift
@@ -96,13 +94,17 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                         <button class="btn btn-outline-dark" id="filter" name="filter" value="parking">
                             Parking
                         </button>
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="single bed">
+                            Single Bed
+                        </button>
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="double bed">
+                            Double Bed
+                        </button>
+                        <button class="btn btn-outline-dark" id="filter" name="filter" value="triple bed">
+                            Triple Bed
+                        </button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary">
-                    Okay
-                </button>
             </div>
         </div>
     </div>

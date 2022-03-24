@@ -38,7 +38,7 @@
                     </div>
                     <li class="nav-item">
                         <a class="nav-link" href="dashboard.php">
-                            <i class="fas fa-user"></i>Dashboard
+                            <i class="fas fa-user"></i>Profile
                         </a>
                     </li>
                     <div class="nav-vl"></div>
