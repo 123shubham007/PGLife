@@ -130,7 +130,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 <?php
                 } else {
                 ?>
-                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#login-modal">Book Now</a>
+                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#login-modal">Generate Token</a>
                 <?php
                 }
                 ?>
@@ -151,7 +151,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                     ?>
                             <div class="amenity-container">
                                 <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['name'] ?></span>
+                                <span><?= $amenity['facility'] ?></span>
                             </div>
                     <?php
                         }
@@ -167,7 +167,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                     ?>
                             <div class="amenity-container">
                                 <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['name'] ?></span>
+                                <span><?= $amenity['facility'] ?></span>
                             </div>
                     <?php
                         }
@@ -183,7 +183,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                     ?>
                             <div class="amenity-container">
                                 <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['name'] ?></span>
+                                <span><?= $amenity['facility'] ?></span>
                             </div>
                     <?php
                         }
@@ -199,7 +199,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                     ?>
                             <div class="amenity-container">
                                 <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['name'] ?></span>
+                                <span><?= $amenity['facility'] ?></span>
                             </div>
                     <?php
                         }
@@ -214,14 +214,15 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
+                <form id="signup-form" class="form" role="form" method="post" action="api/booking_submit.php">
                     <div style="justify-content:center;">
                         <span>Token Generated</span>
                     </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-block btn-primary">Okay</button>
+                    </div>
+                </form>
                 </div>
-                <!-- <div class="modal-footer">
-                    <a href="booking.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">Okay</a>
-                    <button class="btn btn-primary" >Okay</button>
-                </div> -->
             </div>
         </div>
     </div>
