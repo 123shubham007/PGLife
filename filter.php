@@ -10,6 +10,9 @@ $sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.facility
             INNER JOIN properties p
             ON a.id = p.id 
             WHERE a.facility = '$filter';";
+// $sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent
+//             FROM properties p
+//             WHERE p.gender = '$filter'";
 
 $result_3 = mysqli_query($conn, $sql_3);
 if (!$result_3) {
