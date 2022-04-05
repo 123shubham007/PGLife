@@ -14,6 +14,7 @@ session_start();
     ?>
     <link href="css/home.css" rel="stylesheet" />
     <link href="css/property_list.css" rel="stylesheet" />
+    <link href="css/extra.css" rel="stylesheet"/>
 </head>
 
 <body>

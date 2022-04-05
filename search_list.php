@@ -38,6 +38,14 @@ $properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
     ?>
     <link href="css/home.css" rel="stylesheet" />
     <link href="css/property_list.css" rel="stylesheet" />
+    <link href="css/extra.css" rel="stylesheet" />
+    <style>
+        .bottom {
+            position: fixed;
+            width: 100%;
+            bottom: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,11 +102,16 @@ $properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
         }
         ?>
     </div>
+    <div class="bottom">
+        <?php
+        include "includes/footer.php";
+        ?>
+    </div>
     <?php
     include "includes/signup_modal.php";
     include "includes/login_modal.php";
-    include "includes/footer.php";
     ?>
     <script type="text/javascript" src="js/property_list.js"></script>
 </body>
+
 </html>

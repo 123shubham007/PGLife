@@ -55,12 +55,12 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    <div class="rent-container col-6">
+                    <div class="rent-container col-9">
                         <div class="rent">₹ <?= number_format($property['rent']) ?>/-</div>
                         <div class="rent-unit">per month</div>
                     </div>
-                    <div class="button-container col-6">
-                        <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="btn btn-primary">View</a>
+                    <div class="button-container col-3">
+                        <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="b">View</a>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer bottom">
     <div class="page-container footer-container">
         <div class="footer-cities">
             <div class="footer-city">

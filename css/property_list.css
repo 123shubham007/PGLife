@@ -31,7 +31,7 @@
 
 .property-card:focus,
 .property-card:hover {
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 13px 2px rgb(94 94 94), -10px 14px 10px 0 rgb(112 112 112);
 }
 
 .image-container {

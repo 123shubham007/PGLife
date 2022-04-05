@@ -32,6 +32,17 @@ if (!$user) {
     include "includes/head_links.php";
     ?>
     <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="css/extra.css" rel="stylesheet" />
+    <style>
+        .bottom{
+            position: fixed;
+            width: 100%;
+            bottom: 0px;
+        }
+        .text-bold{
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,14 +61,14 @@ if (!$user) {
         </ol>
     </nav>
 
-    <div class="my-profile page-container">
+    <div class="my-profile page-container a">
         <h1>My Profile</h1>
         <div class="row">
             <div class="col-md-3 profile-img-container">
                 <i class="fas fa-user profile-img"></i>
             </div>
             <div class="col-md-9">
-                <div class="row no-gutters justify-content-between align-items-end">
+                <div class="row no-gutters justify-content-between align-items-end text-bold">
                     <div class="profile">
                         <div class="name"><?= $user['full_name'] ?></div>
                         <div class="email"><?= $user['email'] ?></div>
@@ -70,11 +81,11 @@ if (!$user) {
             </div>
         </div>
     </div>
-
-    <?php
-    include "includes/footer.php";
-    ?>
-
+    <div>
+        <?php
+        include "includes/footer.php";
+        ?>
+    </div>
     <script type="text/javascript" src="js/dashboard.js"></script>
 </body>
 

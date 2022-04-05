@@ -43,6 +43,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     include "includes/head_links.php";
     ?>
     <link href="css/property_detail.css" rel="stylesheet" />
+    <link href="css/extra.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -124,13 +125,13 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 ?>
                     <div class="filter-bar row justify-content-around">
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#filter-modal">
-                            <span>Generate Token</span>
+                            <span>Get Token</span>
                         </button>
                     </div>
                 <?php
                 } else {
                 ?>
-                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#login-modal">Generate Token</a>
+                    <a class="btn b" href="#" data-toggle="modal" data-target="#login-modal">Get Token</a>
                 <?php
                 }
                 ?>
@@ -139,7 +140,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <div class="property-amenities">
+    <div class="property-amenities a">
         <div class="page-container">
             <h1>Amenities</h1>
             <div class="row justify-content-between">
@@ -214,14 +215,14 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                <form id="signup-form" class="form" role="form" method="post" action="api/booking_submit.php">
-                    <div style="justify-content:center;">
-                        <span>Token Generated</span>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-block btn-primary">Okay</button>
-                    </div>
-                </form>
+                    <form id="signup-form" class="form" role="form" method="post" action="api/booking_submit.php">
+                        <div style="justify-content:center;">
+                            <span>Token Generated</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-block btn-primary">Okay</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
