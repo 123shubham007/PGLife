@@ -47,18 +47,6 @@
                     </div>
 
                     <div class="form-group">
-                        <span>I'm a</span>
-                        <input type="radio" class="ml-3" id="gender-male" name="gender" value="male" /> 
-                        <label for="gender-male">
-                            Male
-                        </label>
-                        <input type="radio" class="ml-3" id="gender-female" name="gender" value="female" />
-                        <label for="gender-female">
-                            Female
-                        </label>
-                    </div>
-
-                    <div class="form-group">
                         <button type="submit" class="btn btn-block btn-primary">Create Account</button>
                     </div>
                 </form>
