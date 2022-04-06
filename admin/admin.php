@@ -25,7 +25,7 @@
             font-family: "Montserrat", sans-serif
         }
 
-        .header{
+        .header {
             background-color: #fff;
         }
 
@@ -63,19 +63,19 @@
     <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
         <!-- Avatar image in top left corner -->
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-white margin">
-            <i class="fa fa-home w3-xxlarge"></i>
+            <i class="fa fa-home w3-xlarge"></i>
             <p>HOME</p>
         </a>
         <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
-            <i class="fa fa-user w3-xxlarge"></i>
+            <i class="fa fa-user w3-xlarge"></i>
             <p>ABOUT</p>
         </a>
-        <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
-            <i class="fa fa-eye w3-xxlarge"></i>
-            <p>PHOTOS</p>
+        <a href="#add" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+            <i class="fa fa-plus w3-xlarge"></i>
+            <p>ADD</p>
         </a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
-            <i class="fa fa-envelope w3-xxlarge"></i>
+            <i class="fa fa-envelope w3-xlarge"></i>
             <p>CONTACT</p>
         </a>
     </nav>
@@ -85,7 +85,7 @@
         <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
             <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
             <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-            <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+            <a href="#add" class="w3-bar-item w3-button" style="width:25% !important">ADD</a>
             <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
         </div>
     </div>
@@ -93,172 +93,152 @@
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
         <!-- Header/Home -->
-        <header class="w3-container w3-padding-32 w3-center a" id="home">
-            <h1 class="w3-jumbo"><span class="w3-hide-small">Welcome To</span> PGLife</h1>
-            <p>Welcome</p>
-            <img src="/w3images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108">
+        <header class="w3-container w3-padding-32 w3-center" style="background-color: #00000080;" id="home">
+            <h1 class="w3-jumbo" style="margin-bottom: 0px;"><span class="w3-hide-small">Welcome To</span></h1>
+            <hr style="margin-top: 0px; margin-bottom: 2rem; border-top: 2px solid #fff">
+            <img src="img/logo.png" alt="boy" class="w3-image" width="992" height="1108" style="background-color: #32323280;">
         </header>
 
         <!-- About Section -->
-        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-            <h2 class="w3-text-light-grey">My Name</h2>
+        <div class="w3-content w3-justify w3-text-black w3-padding-64 a" id="about">
+            <h2 class="w3-text-light-black">About the Page:</h2>
             <hr style="width:200px" class="w3-opacity">
-            <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-            <p class="w3-wide">Photography</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-            </div>
-            <p class="w3-wide">Web Design</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-            </div>
-            <p class="w3-wide">Photoshop</p>
-            <div class="w3-white">
-                <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-            </div><br>
-
-            <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">11+</span><br>
-                    Partners
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">55+</span><br>
-                    Projects Done
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">89+</span><br>
-                    Happy Clients
-                </div>
-                <div class="w3-quarter w3-section">
-                    <span class="w3-xlarge">150+</span><br>
-                    Meetings
-                </div>
-            </div>
-
-            <button class="w3-button w3-light-grey w3-padding-large w3-section">
-                <i class="fa fa-download"></i> Download Resume
-            </button>
-
-            <!-- Grid for pricing tables -->
-            <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
-            <div class="w3-row-padding" style="margin:0 -16px">
-                <div class="w3-half w3-margin-bottom">
-                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-                        <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-                        <li class="w3-padding-16">Web Design</li>
-                        <li class="w3-padding-16">Photography</li>
-                        <li class="w3-padding-16">5GB Storage</li>
-                        <li class="w3-padding-16">Mail Support</li>
-                        <li class="w3-padding-16">
-                            <h2>$ 10</h2>
-                            <span class="w3-opacity">per month</span>
-                        </li>
-                        <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="w3-half">
-                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-                        <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-                        <li class="w3-padding-16">Web Design</li>
-                        <li class="w3-padding-16">Photography</li>
-                        <li class="w3-padding-16">50GB Storage</li>
-                        <li class="w3-padding-16">Endless Support</li>
-                        <li class="w3-padding-16">
-                            <h2>$ 25</h2>
-                            <span class="w3-opacity">per month</span>
-                        </li>
-                        <li class="w3-light-grey w3-padding-24">
-                            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Grid/Pricing tables -->
-            </div>
-
-            <!-- Testimonials -->
-            <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>
-            <img src="/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-            <p>John Doe saved us from a web disaster.</p><br>
-
-            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-            <p>No one is better than John Doe.</p>
-            <!-- End About Section -->
-        </div>
-
+            <p>Some text about PGLife.</p>
+        </div><br>
         <!-- Portfolio Section -->
-        <div class="w3-padding-64 w3-content" id="photos">
-            <h2 class="w3-text-light-grey">My Photos</h2>
+        <div class="w3-padding-64 w3-content">
+            <h2 class="w3-text-light-black">Photos</h2>
             <hr style="width:200px" class="w3-opacity">
 
             <!-- Grid for photos -->
-            <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-row-padding a" style="margin:0 -16px">
                 <div class="w3-half">
-                    <img src="/w3images/wedding.jpg" style="width:100%">
-                    <img src="/w3images/rocks.jpg" style="width:100%">
-                    <img src="/w3images/sailboat.jpg" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
                 </div>
 
                 <div class="w3-half">
-                    <img src="/w3images/underwater.jpg" style="width:100%">
-                    <img src="/w3images/chef.jpg" style="width:100%">
-                    <img src="/w3images/wedding.jpg" style="width:100%">
-                    <img src="/w3images/p6.jpg" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
+                    <img src="img/logo.png" style="width:100%">
                 </div>
                 <!-- End photo grid -->
             </div>
             <!-- End Portfolio Section -->
         </div>
 
-        <!-- Contact Section -->
-        <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-            <h2 class="w3-text-light-grey">Contact Me</h2>
-            <hr style="width:200px" class="w3-opacity">
-
-            <div class="w3-section">
-                <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-                <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-                <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-            </div><br>
-            <p>Let's get in touch. Send me a message:</p>
-
+        <div class="w3-padding-64 w3-content" id="add">
+            <h2 class="w3-text-light-black a"> Add Hostel </h2>
             <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name Of Hostel" required name="Name"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Address" required name="Address"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="number" placeholder="Rent per Month" required name="Price"></p>
+
+                <div class="form-group w3-padding-16 a">
+                    <span>Hostel for</span>
+                    <input type="radio" class="ml-3" id="gender-male" name="gender" value="male" />
+                    <label for="gender-male">
+                        Male
+                    </label>
+                    <input type="radio" class="ml-3" id="gender-female" name="gender" value="female" />
+                    <label for="gender-female">
+                        Female
+                    </label>
+                </div>
+
+                <h4 class="w3-text-light-black"> Ameties </h4>
+                <!--checkbox-->
+                <div class="page-container a1" style="padding: 25px 25px;">
+                    <div class="row justify-content-between">
+                        <div class="col-md-auto">
+                            <input type="checkbox" id="ameties[0]" name="ameties[0]" value="cctv">
+                            <label for="ameties[0]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[1]" value="cctv">
+                            <label for="ameties[1]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[2]" value="cctv">
+                            <label for="ameties[2]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[3]" value="cctv">
+                            <label for="ameties[3]">CCTV</label><br>
+                        </div>
+                        <div class="col-md-auto">
+                            <input type="checkbox" id="ameties[0]" name="ameties[4]" value="cctv">
+                            <label for="ameties[4]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[5]" value="cctv">
+                            <label for="ameties[5]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[6]" value="cctv">
+                            <label for="ameties[6]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[7]" value="cctv">
+                            <label for="ameties[7]">CCTV</label><br>
+                        </div>
+                        <div class="col-md-auto">
+                            <input type="checkbox" id="ameties[0]" name="ameties[8]" value="cctv">
+                            <label for="ameties[8]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[9]" value="cctv">
+                            <label for="ameties[9]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[10]" value="cctv">
+                            <label for="ameties[10]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[11]" value="cctv">
+                            <label for="ameties[11]">CCTV</label><br>
+                        </div>
+                        <div class="col-md-auto">
+                            <input type="checkbox" id="ameties[0]" name="ameties[12]" value="cctv">
+                            <label for="ameties[12]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[13]" value="cctv">
+                            <label for="ameties[13]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[14]" value="cctv">
+                            <label for="ameties[14]">CCTV</label><br>
+                            <input type="checkbox" id="ameties[0]" name="ameties[15]" value="cctv">
+                            <label for="ameties[15]">CCTV</label><br>
+                        </div>
+                    </div>
+                    <!--checkbox end-->
+                </div>
+                <br />
                 <p>
-                    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    <button class="fancy" type="submit">
+                        <span class="top-key"></span>
+                        <span class="text">ADD To PGLife</span>
+                        <span class="bottom-key-1"></span>
+                        <span class="bottom-key-2"></span>
                     </button>
                 </p>
             </form>
-            <!-- End Contact Section -->
         </div>
 
-        <!-- Footer -->
-        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-            <!-- End footer -->
-        </footer>
+        <!-- Contact Section -->
+        <div class="w3-padding-64 w3-content w3-text-black a" id="contact">
+            <h2 class="w3-text-light-black">Contact Me</h2>
+            <hr style="width:200px" class="w3-opacity">
 
-        <!-- END PAGE CONTENT -->
+            <div class="w3-section a">
+                <p><i class="fa fa-map-marker fa-fw w3-text-gray w3-xlarge w3-margin-right"></i> Dehradun, India</p>
+                <p><i class="fa fa-phone fa-fw w3-text-gray w3-xlarge w3-margin-right"></i> Phone: +91 7979816961</p>
+                <p><i class="fa fa-envelope fa-fw w3-text-gray w3-xlarge w3-margin-right"> </i> Email: shubhamkuar.123.sk001@mail.com</p>
+            </div><br>
+            <p class="a">Let's get in touch. Send me a message:</p>
+
+            <form action="/action_page.php" target="_blank">
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name" required name="Name"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Email" required name="Email"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Subject" required name="Subject"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Message" required name="Message"></p><br />
+                <p>
+                    <button class="fancy" type="submit">
+                        <span class="top-key"></span>
+                        <span class="text"><i class="fa fa-paper-plane"></i> SEND MESSAGE</span>
+                        <span class="bottom-key-1"></span>
+                        <span class="bottom-key-2"></span>
+                    </button>
+                </p>
+            </form>
+            <!-- END PAGE CONTENT -->
+        </div>
     </div>
+    <br />
+    <?php
+    include "includes/footer.php";
+    ?>
 
 </body>
 
