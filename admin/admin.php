@@ -136,11 +136,11 @@ session_start();
         </div>
         <!-- add hostel -->
         <div class="w3-padding-64 w3-content" id="add">
-            <h2 class="w3-text-light-black a"> Add Hostel </h2><br />
-            <form action="api/hostel_submit.php" method="post" id="hostel-form">
+            <h2 class="w3-text-light-black a" id="hostel-heading"> Add Hostel </h2><br />
+            <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php">
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name Of Hostel" required name="name"></p>
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Address" required name="address"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="number" placeholder="Rent per Month" required name="rent"></p>
+                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Rent per Month" required name="rent"></p>
 
                 <div class="form-group w3-padding-16 a">
                     <span>Hostel for</span>
@@ -155,52 +155,52 @@ session_start();
                 </div>
 
                 <h4 class="w3-text-light-black"> Ameties </h4>
-                <!--checkbox-->
-                <div class="page-container a1" style="padding: 25px 25px;">
+                <!-- checkbox -->
+                <!-- <div class="page-container a1" style="padding: 25px 25px;">
                     <div class="row justify-content-between">
                         <div class="col-md-auto">
-                            <input type="checkbox" id="amenitie[0]" name="amenitie[0]" value="cctv">
-                            <label for="amenitie[0]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[1]" name="amenitie[1]" value="cctv">
-                            <label for="amenitie[1]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[2]" name="amenitie[2]" value="cctv">
-                            <label for="amenitie[2]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[3]" name="amenitie[3]" value="cctv">
-                            <label for="amenitie[3]">CCTV</label><br>
+                            <input type="checkbox" id="amenitie0" name="amenitie0" value="cctv">
+                            <label for="amenitie0">CCTV</label><br>
+                            <input type="checkbox" id="amenitie1" name="amenitie1" value="cctv">
+                            <label for="amenitie1">CCTV</label><br>
+                            <input type="checkbox" id="amenitie2" name="amenitie2" value="cctv">
+                            <label for="amenitie2">CCTV</label><br>
+                            <input type="checkbox" id="amenitie3" name="amenitie3" value="cctv">
+                            <label for="amenitie3">CCTV</label><br>
+                        </div> -->
+                        <!--<div class="col-md-auto">
+                            <input type="checkbox" id="amenitie4" name="amenitie4" value="cctv">
+                            <label for="amenitie4">CCTV</label><br>
+                            <input type="checkbox" id="amenitie5" name="amenitie5" value="cctv">
+                            <label for="amenitie5">CCTV</label><br>
+                            <input type="checkbox" id="amenitie6" name="amenitie6" value="cctv">
+                            <label for="amenitie6">CCTV</label><br>
+                            <input type="checkbox" id="amenitie7" name="amenitie7" value="cctv">
+                            <label for="amenitie7">CCTV</label><br>
                         </div>
                         <div class="col-md-auto">
-                            <input type="checkbox" id="amenitie[4]" name="amenitie[4]" value="cctv">
-                            <label for="amenitie[4]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[5]" name="amenitie[5]" value="cctv">
-                            <label for="amenitie[5]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[6]" name="amenitie[6]" value="cctv">
-                            <label for="amenitie[6]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[7]" name="amenitie[7]" value="cctv">
-                            <label for="amenitie[7]">CCTV</label><br>
+                            <input type="checkbox" id="amenitie8" name="amenitie8" value="cctv">
+                            <label for="amenitie8">CCTV</label><br>
+                            <input type="checkbox" id="amenitie9" name="amenitie9" value="cctv">
+                            <label for="amenitie9">CCTV</label><br>
+                            <input type="checkbox" id="amenitie10" name="amenitie10" value="cctv">
+                            <label for="amenitie10">CCTV</label><br>
+                            <input type="checkbox" id="amenitie11" name="amenitie11" value="cctv">
+                            <label for="amenitie11">CCTV</label><br>
                         </div>
                         <div class="col-md-auto">
-                            <input type="checkbox" id="amenitie[8]" name="amenitie[8]" value="cctv">
-                            <label for="amenitie[8]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[9]" name="amenitie[9]" value="cctv">
-                            <label for="amenitie[9]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[10]" name="amenitie[10]" value="cctv">
-                            <label for="amenitie[10]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[11]" name="amenitie[11]" value="cctv">
-                            <label for="amenitie[11]">CCTV</label><br>
-                        </div>
-                        <div class="col-md-auto">
-                            <input type="checkbox" id="amenitie[12]" name="amenitie[12]" value="cctv">
-                            <label for="amenitie[12]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[13]" name="amenitie[13]" value="cctv">
-                            <label for="amenitie[13]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[14]" name="amenitie[14]" value="cctv">
-                            <label for="amenitie[14]">CCTV</label><br>
-                            <input type="checkbox" id="amenitie[15]" name="amenitie[15]" value="cctv">
-                            <label for="amenitie[15]">CCTV</label><br>
-                        </div>
-                    </div>
-                    <!--checkbox end-->
-                </div>
+                            <input type="checkbox" id="amenitie12" name="amenitie12" value="cctv">
+                            <label for="amenitie12">CCTV</label><br>
+                            <input type="checkbox" id="amenitie13" name="amenitie13" value="cctv">
+                            <label for="amenitie13">CCTV</label><br>
+                            <input type="checkbox" id="amenitie14" name="amenitie14" value="cctv">
+                            <label for="amenitie14">CCTV</label><br>
+                            <input type="checkbox" id="amenitie15" name="amenitie15" value="cctv">
+                            <label for="amenitie15">CCTV</label><br>
+                        </div>-->
+                    <!-- </div>
+                </div> -->
+                <!--checkbox end-->
                 <br />
                 <p>
                     <button class="fancy" type="submit">

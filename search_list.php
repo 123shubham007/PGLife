@@ -13,7 +13,7 @@ if (!$result_1) {
 }
 $city = mysqli_fetch_assoc($result_1);
 if (!$city) {
-    echo "Sorry! We do not have any PG listed in this city.";
+    echo "Sorry! We do not have any PG listed with the name: '$city_name'.";
     return;
 }
 $city_id = $city['id'];
