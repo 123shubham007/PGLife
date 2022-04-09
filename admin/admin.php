@@ -1,5 +1,8 @@
 <?php
 session_start();
+require "includes/database_connect.php";
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +19,7 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/property_list.css">
     <?php
     include "includes/head_links.php";
     ?>
@@ -78,8 +82,8 @@ session_start();
             <p>ABOUT</p>
         </a>
         <a href="#add" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
-            <i class="fa fa-plus w3-xlarge"></i>
-            <p>ADD</p>
+            <i class="fa fa-building w3-xlarge"></i>
+            <p>HOSTEL</p>
         </a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
             <i class="fa fa-envelope w3-xlarge"></i>
@@ -118,7 +122,7 @@ session_start();
             <hr style="width:200px" class="w3-opacity">
 
             <!-- Grid for photos -->
-            <div class="w3-row-padding a1" style="margin:0 -16px">
+            <div class="w3-row-padding a1" style="margin:0 -16px;">
                 <div class="w3-half">
                     <img src="img/logo.png" style="width:100%">
                     <img src="img/logo.png" style="width:100%">
@@ -134,9 +138,21 @@ session_start();
             </div>
             <!-- End Portfolio Section -->
         </div>
-        <!-- add hostel -->
         <div class="w3-padding-64 w3-content w3-text-white" id="add">
-            <h2 class="w3-text-light-white" id="hostel-heading"> Add Hostel </h2><br />
+            <h2 class="w3-text-light-white" id="hostel-heading"> Hostel Added - </h2><br />
+            <!-- card -->
+            <?php
+            //Check if user is loging or not
+            if (!isset($_SESSION["user_id"])) {
+            ?>
+                <p class="a1" style="padding: 20px;">No Hostel Added</p>
+            <?php
+            } else {
+                include "card.php";
+            }
+            ?>
+            <!-- add hostel -->
+            <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Add Hostel </h2><br />
             <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php">
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name Of Hostel" required name="name"></p>
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Address" required name="address"></p>
@@ -217,10 +233,10 @@ session_start();
                     } else {
                     ?>
                         <button class="fancy" href="#" data-toggle="modal" data-target="#login-modal">
-                                <span class="top-key"></span>
-                                <span class="text">ADD To PGLife</span>
-                                <span class="bottom-key-1"></span>
-                                <span class="bottom-key-2"></span>
+                            <span class="top-key"></span>
+                            <span class="text">ADD To PGLife</span>
+                            <span class="bottom-key-1"></span>
+                            <span class="bottom-key-2"></span>
                         </button>
                     <?php
                     }

@@ -59,6 +59,12 @@ if (!$result_2) {
     return;
 }
 
+$sql_3 = "INSERT INTO `adminproperty`(`admin_id`,`properties_id`) VALUE ('$_SESSION','$property_id')";
+$result_3 = mysqli_query($conn, $sql_3);
+if (!$result_3) {
+    echo "Something went wrong!123";
+}
+
 $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
 echo json_encode($response);
 mysqli_close($conn);

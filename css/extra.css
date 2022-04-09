@@ -106,10 +106,12 @@ body {
 
 .a {
     background-color: #00000080;
+    border-radius: 20px;
 }
 
 .a1 {
     background-color: #ffffff80;
+    border-radius: 20px;
 }
 
 .property-card {
