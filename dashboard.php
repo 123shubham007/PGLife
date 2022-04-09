@@ -50,7 +50,7 @@ if (!$user) {
     include "includes/header.php";
     ?>
 
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb" style="padding-bottom: 40px;">
         <ol class="breadcrumb py-2">
             <li class="breadcrumb-item">
                 <a href="index.php">Home</a>
@@ -61,7 +61,7 @@ if (!$user) {
         </ol>
     </nav>
 
-    <div class="my-profile page-container a">
+    <div class="my-profile page-container a" style="padding: 50px">
         <h1>My Profile</h1>
         <div class="row">
             <div class="col-md-3 profile-img-container">

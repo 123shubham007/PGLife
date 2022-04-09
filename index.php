@@ -17,7 +17,7 @@ session_start();
     <link href="css/extra.css" rel="stylesheet"/>
 </head>
 
-<body>
+<body style="color: black;">
     <?php
     include "includes/header.php";
     ?>

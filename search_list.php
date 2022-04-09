@@ -48,7 +48,7 @@ $properties = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
     </style>
 </head>
 
-<body>
+<body style="color: black;">
     <?php
     include "includes/header.php";
     ?>

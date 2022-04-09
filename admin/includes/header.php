@@ -1,6 +1,6 @@
 <div class="header sticky-top">
     <nav class="navbar navbar-expand-md navbar-light">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="#">
             <img src="img/logo.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-navbar">

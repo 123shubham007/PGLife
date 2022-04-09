@@ -18,11 +18,11 @@ if (!$property) {
     return;
 }
 
-$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.type,a.facility 
-             FROM properties p 
-             INNER JOIN amenities a 
-             ON p.id = a.id 
-             WHERE a.id = $property_id";
+$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.amenitie0,a.amenitie1,a.amenitie2,a.amenitie3,a.amenitie4,a.amenitie5,a.amenitie6,a.amenitie7,a.amenitie8,a.amenitie9,a.amenitie10,a.amenitie11,a.amenitie12,a.amenitie13,a.amenitie14,a.amenitie15
+FROM properties p 
+INNER JOIN amenities a 
+ON p.id = a.id 
+WHERE a.id = $property_id";
 
 $result_3 = mysqli_query($conn, $sql_3);
 if (!$result_3) {
@@ -46,7 +46,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <link href="css/extra.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="anim">
     <?php
     include "includes/header.php";
     ?>
@@ -97,7 +97,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <div class="property-summary page-container">
         <div class="detail-container">
             <div class="property-name"><?= $property['name'] ?></div>
-            <div class="property-address"><?= $property['address'] ?></div>
+            <div class="property-address" style="color: white;"><?= $property['address'] ?></div>
             <div class="property-gender">
                 <?php
                 if ($property['gender'] == "Male") {
@@ -115,7 +115,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         <div class="row no-gutters">
             <div class="rent-container col-6">
                 <div class="rent">₹ <?= number_format($property['rent']) ?>/-</div>
-                <div class="rent-unit">per month</div>
+                <div class="rent-unit" style="color: white;">per month</div>
             </div>
             <div class="button-container col-6">
 
@@ -140,74 +140,137 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <div class="property-amenities a">
+    <div class="property-amenities anim">
         <div class="page-container">
             <h1>Amenities</h1>
-            <div class="row justify-content-between">
-                <div class="col-md-auto">
-                    <h5>Building</h5>
-                    <?php
-                    foreach ($amenities as $amenity) {
-                        if ($amenity['type'] == "Building") {
-                    ?>
-                            <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['facility'] ?></span>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
+            <?php
+            foreach ($amenities as $amenity) {
+            ?>
+                <div class="row justify-content-between a1" style="text-align: center; color: black;">
+                    <div class="col-md-3">
+                        <div class="amenity-container">
+                            <?php
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
 
-                <div class="col-md-auto">
-                    <h5>Common Area</h5>
-                    <?php
-                    foreach ($amenities as $amenity) {
-                        if ($amenity['type'] == "Common Area") {
-                    ?>
-                            <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['facility'] ?></span>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="amenity-container">
+                            <?php
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="amenity-container">
+                            <?php
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="amenity-container">
+                            <?php if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span><br />
+                            <?php
+                            }
+                            if ($amenity['amenitie0'] == "cctv") {
+                            ?>
+                                <img src="img/amenities/<?= $amenity['amenitie0'] ?>.svg">
+                                <span><?= $amenity['amenitie0'] ?></span>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-md-auto">
-                    <h5>Bedroom</h5>
-                    <?php
-                    foreach ($amenities as $amenity) {
-                        if ($amenity['type'] == "Bedroom") {
-                    ?>
-                            <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['facility'] ?></span>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-
-                <div class="col-md-auto">
-                    <h5>Washroom</h5>
-                    <?php
-                    foreach ($amenities as $amenity) {
-                        if ($amenity['type'] == "Washroom") {
-                    ?>
-                            <div class="amenity-container">
-                                <img src="img/amenities/<?= $amenity['facility'] ?>.svg">
-                                <span><?= $amenity['facility'] ?></span>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 

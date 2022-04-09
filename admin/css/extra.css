@@ -55,7 +55,21 @@
 }
 
 body {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1021%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M805.8917124570161 159.12273313858609L767.8909423479047 240.6156476222682 909.1306991279835 256.87034554409416z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M670.9391923637444 195.9697688021472L588.4608291120509 327.96274141262285 720.4538017225266 410.44110466431636 802.9321649742201 278.4481320538407z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M959.711426213221 551.3129499234768L1043.527462250678 567.6051369191358 1059.819649246337 483.78910088167885 976.00361320888 467.49691388601985z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M174.72540555060837 26.53273183595646L101.75350686919059 92.1111076332623 182.84392083377148 120.03277633435738z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M226.07201957704027 22.807157529576976L268.24674037252106 95.85591674238128 341.2954995853254 53.68119594690051 299.12077878984456-19.367563265903804z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M274.8166944121119 358.6089869121063L163.6454452104063 403.52508714845106 208.56154544675107 514.6963363501566 319.73279464845666 469.78023611381184z' fill='rgba(77%2c 199%2c 188%2c 1)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1021'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    background: linear-gradient( to right, #833ab4, #fd1d1d, #fcb045);
+    background-size: 400% 400%;
+    animation: animate-background 50s infinite ease-in-out;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .b:hover::before {
@@ -71,12 +85,8 @@ body {
     font-weight: bold;
 }
 
-.a {
-    background-color: #fcfaf773;
-}
-
 .a1 {
-    background-color: #c6c6c673;
+    background-color: #00000080;
 }
 
 .property-card {

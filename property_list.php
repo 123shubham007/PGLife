@@ -13,7 +13,7 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
 ?>
 <div class="page-container">
     <div class="filter-bar row justify-content-around">
-        <div class="col-auto" data-toggle="modal" data-target="#filter-modal">
+        <div class="col-auto a1" style="padding: 10px;" data-toggle="modal" data-target="#filter-modal">
             <img src="img/filter.png" alt="filter" />
             <span>Filter</span>
         </div>
