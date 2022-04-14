@@ -145,7 +145,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
             //Check if user is loging or not
             if (!isset($_SESSION["user_id"])) {
             ?>
-                <p class="a1" style="padding: 20px;">No Hostel Added</p>
+                <p class="a1" style="padding: 20px; color: white;">No Hostel Added</p>
             <?php
             } else {
                 include "card.php";
@@ -154,6 +154,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
             <!-- add hostel -->
             <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Add Hostel </h2><br />
             <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php">
+                <p><input type="hidden" name="user_id" value="<?= $_SESSION["user_id"] ?>"></p>
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name Of Hostel" required name="name"></p>
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Address" required name="address"></p>
                 <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Rent per Month" required name="rent"></p>
@@ -276,6 +277,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
     </div>
     <br />
     <?php
+    include "includes/edit.php";
     include "includes/signup_modal.php";
     include "includes/login_modal.php";
     include "includes/footer.php";

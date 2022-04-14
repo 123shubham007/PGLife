@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $password = sha1($password);
 
-$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+$sql = "SELECT * FROM `admin` WHERE email='$email' AND password='$password'";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     $response = array("success" => false, "message" => "Something went wrong!");

@@ -47,7 +47,7 @@ window.addEventListener("load", function() {
         var form_data = new FormData(hostel_form);
 
         // On success
-        XHR.addEventListener("load", hostel_success);
+        XHR.addEventListener("load", login_success);
 
         // On error
         XHR.addEventListener("error", on_error);

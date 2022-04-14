@@ -46,7 +46,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <link href="css/extra.css" rel="stylesheet" />
 </head>
 
-<body class="anim">
+<body class="anim" style="color: black;">
     <?php
     include "includes/header.php";
     ?>
@@ -94,13 +94,13 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </a>
     </div>
 
-    <div class="property-summary page-container">
+    <div class="property-summary page-container" style="color: white;">
         <div class="detail-container">
             <div class="property-name"><?= $property['name'] ?></div>
             <div class="property-address" style="color: white;"><?= $property['address'] ?></div>
             <div class="property-gender">
                 <?php
-                if ($property['gender'] == "Male") {
+                if ($property['gender'] == "male") {
                 ?>
                     <img src="img/male.png">
                 <?php
@@ -124,7 +124,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                 if ($user_id != NULL) {
                 ?>
                     <div class="filter-bar row justify-content-around">
-                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#filter-modal">
+                        <button class="btn b" data-toggle="modal" data-target="#booking-modal">
                             <span>Get Token</span>
                         </button>
                     </div>
@@ -140,13 +140,13 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <div class="property-amenities anim">
+    <div class="property-amenities anim" style="color: white;">
         <div class="page-container">
             <h1>Amenities</h1>
             <?php
             foreach ($amenities as $amenity) {
             ?>
-                <div class="row justify-content-between a1" style="text-align: center; color: black;">
+                <div class="row justify-content-between a1" style="color: black;">
                     <div class="col-md-3">
                         <div class="amenity-container">
                             <?php
@@ -274,14 +274,45 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <div class="modal fade" id="filter-modal" tabindex="-1" role="dialog" aria-labelledby="filter-heading" aria-hidden="true">
+    <div class="modal fade" id="booking-modal" tabindex="-1" role="dialog" aria-labelledby="booking-heading" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="booking-heading">Generate Token</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body">
-                    <form id="signup-form" class="form" role="form" method="post" action="api/booking_submit.php">
-                        <div style="justify-content:center;">
-                            <span>Token Generated</span>
+                    <form id="booking-form" class="form" role="form" method="post" action="api/booking_submit.php">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <p><input type="hidden" name="properties_id" value="<?= $property_id ?>"></p>
+                            <input type="text" class="form-control" name="full_name" placeholder="Full Name" maxlength="30" required>
                         </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" name="phone" placeholder="Phone Number" maxlength="10" minlength="10" required>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-block btn-primary">Okay</button>
                         </div>

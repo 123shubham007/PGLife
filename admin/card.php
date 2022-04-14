@@ -25,7 +25,7 @@ if ($row_count != 0) {
                     <div class="property-address"><?= $property['address'] ?></div>
                     <div class="property-gender">
                         <?php
-                        if ($property['gender'] == "Male") {
+                        if ($property['gender'] == "male") {
                         ?>
                             <img src="img/male.png" />
                         <?php
@@ -43,6 +43,9 @@ if ($row_count != 0) {
                         <div class="rent-unit">per month</div>
                     </div>
                     <!-- edit hostel code -->
+                    <div class="button-container col-3">
+                        <button class="b" href="#" data-toggle="modal" data-target="#edit-modal">Edit</a>
+                    </div>
                 </div>
             </div>
         </div>

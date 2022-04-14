@@ -86,7 +86,7 @@ input[type="radio"] {
 #loading {
     display: none;
     background-color: #666666;
-    background-image: url("../img/progress_spinner.gif");
+    background-image: url("../img/spinner_blue.gif");
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.4;
@@ -98,7 +98,9 @@ input[type="radio"] {
     z-index: 10000000;
 }
 
+
 /* Login Modal */
+
 #login-modal .modal-dialog {
     width: 350px;
     margin: auto;
@@ -109,7 +111,9 @@ input[type="radio"] {
     justify-content: center;
 }
 
+
 /* Header */
+
 .header {
     background-color: rgba(255, 255, 255, 0);
     font-size: 13px;
@@ -147,7 +151,9 @@ input[type="radio"] {
     }
 }
 
+
 /* Footer */
+
 .footer {
     background-color: #333333;
     font-size: 13px;
@@ -175,7 +181,8 @@ input[type="radio"] {
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
-  }
+}
+
 .footer-twitter {
     background-image: url("../img/twitter.png");
 }

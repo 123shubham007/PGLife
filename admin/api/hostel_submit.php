@@ -1,6 +1,7 @@
 <?php
 require("../includes/database_connect.php");
 
+$user_id = $_POST['user_id'];
 $name = $_POST['name'];
 $rent = $_POST['rent'];
 $address = $_POST['address'];
@@ -54,15 +55,15 @@ $property_id = $id['id'];
 $sql_2 = "INSERT INTO `amenities`(`id`, `amenitie0`, `amenitie1`, `amenitie2`, `amenitie3`, `amenitie4`, `amenitie5`, `amenitie6`, `amenitie7`, `amenitie8`, `amenitie9`, `amenitie10`, `amenitie11`, `amenitie12`, `amenitie13`, `amenitie14`, `amenitie15`) VALUES ('$property_id' , '$amenitie0' , '$amenitie1' , '$amenitie2' , '$amenitie3' , '$amenitie4' , '$amenitie5' , '$amenitie6' , '$amenitie7' ,  '$amenitie8' , '$amenitie9' , '$amenitie10' , '$amenitie11' , '$amenitie12' , '$amenitie13' , '$amenitie14' , '$amenitie15')";
 $result_2 = mysqli_query($conn, $sql_2);
 if (!$result_2) {
+    echo "Something went wrong!123";
+}
+
+$sql_3 = "INSERT INTO `adminproperty`(`admin_id`,`properties_id`) VALUE ('$user_id','$property_id')";
+$result_3 = mysqli_query($conn, $sql_3);
+if (!$result_3) {
     $response = array("success" => false, "message" => "Something went wrong!");
     echo json_encode($response);
     return;
-}
-
-$sql_3 = "INSERT INTO `adminproperty`(`admin_id`,`properties_id`) VALUE ('$_SESSION','$property_id')";
-$result_3 = mysqli_query($conn, $sql_3);
-if (!$result_3) {
-    echo "Something went wrong!123";
 }
 
 $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");

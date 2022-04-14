@@ -122,3 +122,55 @@ body {
 .property-card:hover {
     box-shadow: 6.6px 11.5px 6.7px rgba(0, 0, 0, 0.075), 10.2px 17.8px 16.2px rgba(0, 0, 0, 0.08), 12.6px 22.1px 28.2px rgba(0, 0, 0, 0.08), 15.3px 26.8px 42.2px rgba(0, 0, 0, 0.078), 19.8px 34.8px 57.3px rgba(0, 0, 0, 0.076), 29.4px 51.5px 71.2px rgba(0, 0, 0, 0.073), 57px 100px 80px rgba(0, 0, 0, 0.07);
 }
+
+
+/* From uiverse.io by @alexmaracinaru */
+
+.cta {
+    border: none;
+    background: none;
+}
+
+.cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.cta svg {
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
+
+.cta:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
