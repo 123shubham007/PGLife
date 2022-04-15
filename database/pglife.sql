@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 11:03 AM
+-- Generation Time: Apr 15, 2022 at 12:44 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -24,66 +24,106 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(125) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `phone` double NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `full_name`, `phone`, `email`, `password`) VALUES
+(6, 'Admin', 7897897897, 'admin@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminproperty`
+--
+
+CREATE TABLE `adminproperty` (
+  `id` int(11) NOT NULL,
+  `properties_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `adminproperty`
+--
+
+INSERT INTO `adminproperty` (`id`, `properties_id`, `admin_id`) VALUES
+(2, 44, 6),
+(3, 45, 6),
+(4, 46, 6),
+(5, 47, 6),
+(6, 48, 6),
+(7, 49, 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `amenities`
 --
 
 CREATE TABLE `amenities` (
   `id` int(255) UNSIGNED NOT NULL,
-  `type` varchar(255) NOT NULL,
-  `facility` varchar(255) NOT NULL
+  `amenitie0` varchar(255) DEFAULT NULL,
+  `amenitie1` varchar(255) DEFAULT NULL,
+  `amenitie2` varchar(255) DEFAULT NULL,
+  `amenitie3` varchar(255) DEFAULT NULL,
+  `amenitie4` varchar(255) DEFAULT NULL,
+  `amenitie5` varchar(255) DEFAULT NULL,
+  `amenitie6` varchar(255) DEFAULT NULL,
+  `amenitie7` varchar(255) DEFAULT NULL,
+  `amenitie8` varchar(255) DEFAULT NULL,
+  `amenitie9` varchar(255) DEFAULT NULL,
+  `amenitie10` varchar(255) DEFAULT NULL,
+  `amenitie11` varchar(255) DEFAULT NULL,
+  `amenitie12` varchar(255) DEFAULT NULL,
+  `amenitie13` varchar(255) DEFAULT NULL,
+  `amenitie14` varchar(255) DEFAULT NULL,
+  `amenitie15` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `amenities`
 --
 
-INSERT INTO `amenities` (`id`, `type`, `facility`) VALUES
-(1, 'Building', 'cctv'),
-(1, 'Building', 'parking'),
-(2, 'Building', 'cctv'),
-(3, 'Building', 'wifi'),
-(3, 'Building', 'garden'),
-(3, 'Building', 'geyser'),
-(3, 'Building', 'lift'),
-(3, 'Common Area', 'dining'),
-(3, 'Common Area', 'gym'),
-(3, 'Common Area', 'play zone'),
-(3, 'Bedroom', 'bed'),
-(3, 'Bedroom', 'attach washroom'),
-(3, 'Washroom', 'geyser'),
-(4, 'Washroom', 'geyser'),
-(4, 'Common Area', 'dining'),
-(4, 'Common Area', 'gym'),
-(4, 'Building', 'lift'),
-(4, 'Building', 'wifi'),
-(1, 'Bedroom', 'bed'),
-(1, 'Bedroom', 'double bed'),
-(1, 'Washroom', 'geyser'),
-(1, 'Common Area', 'dining'),
-(1, 'Building', 'fire exit'),
-(1, 'Common Area', 'gym'),
-(1, 'Building', 'lift'),
-(1, 'Building', 'powerbackup'),
-(1, 'Bedroom', 'wifi'),
-(1, 'Common Area', 'rowater'),
-(1, 'Common Area', 'tv'),
-(1, 'Common Area', 'washing machine'),
-(2, 'Bedroom', 'wifi'),
-(2, 'Bedroom', 'ac'),
-(2, 'Bedroom', 'double bed'),
-(2, 'Bedroom', 'bed'),
-(2, 'Building', 'fire exit'),
-(2, 'Building', 'lift'),
-(2, 'Common Area', 'garden'),
-(2, 'Common Area', 'dining'),
-(2, 'washroom', 'geyser'),
-(2, 'Common Area', 'gym'),
-(2, 'Common Area', 'parking'),
-(2, 'Building', 'powerbackup'),
-(2, 'Common Area', 'rowater'),
-(2, 'Common Area', 'tv'),
-(2, 'Common Area', 'washing machine'),
-(3, 'Bedroom', 'triple sharing');
+INSERT INTO `amenities` (`id`, `amenitie0`, `amenitie1`, `amenitie2`, `amenitie3`, `amenitie4`, `amenitie5`, `amenitie6`, `amenitie7`, `amenitie8`, `amenitie9`, `amenitie10`, `amenitie11`, `amenitie12`, `amenitie13`, `amenitie14`, `amenitie15`) VALUES
+(44, 'cctv', 'ac', 'bed', 'double bed', 'dining', 'gym', 'lift', 'parking', 'powerbackup', 'washing machine', 'geyser', 'rowater', 'tv', 'wifi', 'fire exit', 'garden'),
+(45, 'cctv', '', 'bed', '', 'dining', '', 'lift', '', 'powerbackup', '', 'geyser', '', 'tv', '', 'fire exit', ''),
+(46, '', 'ac', '', 'double bed', '', 'gym', '', 'parking', '', 'washing machine', '', 'rowater', '', 'wifi', '', 'garden'),
+(47, '', '', '', '', '', 'gym', '', '', '', '', '', '', '', '', '', ''),
+(48, '', '', '', '', 'dining', 'gym', 'lift', 'parking', '', '', '', '', 'tv', 'wifi', 'fire exit', 'garden'),
+(49, 'cctv', '', '', '', 'dining', 'gym', '', '', '', 'washing machine', 'geyser', '', '', '', 'fire exit', 'garden');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(255) NOT NULL,
+  `full_name` text NOT NULL,
+  `email` text NOT NULL,
+  `phone` int(255) NOT NULL,
+  `properties` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `full_name`, `email`, `phone`, `properties`) VALUES
+(4, 'shubham', 'shubham@gmail.com', 2147483647, 44);
 
 -- --------------------------------------------------------
 
@@ -104,10 +144,12 @@ CREATE TABLE `properties` (
 --
 
 INSERT INTO `properties` (`id`, `name`, `address`, `gender`, `rent`) VALUES
-(1, 'SONA Boys Hostel', 'UPES', 'Male', 13000),
-(2, 'Example Hostel', 'UPES', 'Femail', 12000),
-(3, 'Deep Boys', 'Nanda ki Chowki', 'Male', 12000),
-(4, 'Aashiyana Grand', 'Uper Kandoli', 'Male', 15500);
+(44, 'Sona Boys Hostel', 'Bidholi Majhaun Rd. ,Bidholi', 'male', 15000),
+(45, 'Example', 'UPES', 'male', 12345),
+(46, 'Example_2', 'Upes', 'female', 14523),
+(47, 'Rishabh jain', 'upes', 'male', 545),
+(48, 'Example_3', 'upes', 'female', 13500),
+(49, 'Example_4', 'Bidoli', 'male', 123456);
 
 -- --------------------------------------------------------
 
@@ -125,20 +167,32 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `full_name`, `phone`, `email`, `password`, `gender`) VALUES
-(1, 'shubham', 7979816961, 'sk@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'male'),
-(3, 'sidhant', 9876543211, 'sd@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'male'),
-(4, 'shubham k', 7894561235, 'sksks@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'male'),
-(5, 'abcd', 7417417417, 'shubham@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'female'),
-(6, 'Rishabh Jain', 1234567890, 'rj@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'female'),
-(10, 'priyam', 1234567890, 'priyam2@gmail.com', 'c250f88274cb8a75961a08502efcb7c262033c87', 'male');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `adminproperty`
+--
+ALTER TABLE `adminproperty`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `amenities`
+--
+ALTER TABLE `amenities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `properties`
@@ -157,16 +211,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(125) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `adminproperty`
+--
+ALTER TABLE `adminproperty`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` tinyint(125) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` tinyint(125) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(125) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(125) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
