@@ -35,7 +35,6 @@ session_start();
                 </div>
             </div>
         </form>
-
     </div>
     <!-- Hostels list -->
     <div>

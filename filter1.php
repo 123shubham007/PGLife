@@ -3,29 +3,13 @@ session_start();
 require "includes/database_connect.php";
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
-$amenitie0 = ($_GET['amenitie0'] != '0') ? "cctv" : "0";
-$amenitie1 = ($_GET['amenitie1'] != '0') ? "ac" : "0";
-$amenitie2 = ($_GET['amenitie2'] != '0') ? "bed" : "0";
-$amenitie3 = ($_GET['amenitie3'] != '0') ? "double bed" : "0";
-$amenitie4 = ($_GET['amenitie4'] != '0') ? "dining" : "0";
-$amenitie5 = ($_GET['amenitie5'] != '0') ? "gym" : "0";
-$amenitie6 = ($_GET['amenitie6'] != '0') ? "lift" : "0";
-$amenitie7 = ($_GET['amenitie7'] != '0') ? "parking" : "0";
-$amenitie8 = ($_GET['amenitie8'] != '0') ? "powerbackup" : "0";
-$amenitie9 = ($_GET['amenitie9'] != '0') ? "washing machine" : "0";
-$amenitie10 = ($_GET['amenitie10'] != '0') ? "geyser" : "0";
-$amenitie11 = ($_GET['amenitie11'] != '0') ? "rowater" : "0";
-$amenitie12 = ($_GET['amenitie12'] != '0') ? "tv" : "0";
-$amenitie13 = ($_GET['amenitie13'] != '0') ? "wifi" : "0";
-$amenitie14 = ($_GET['amenitie14'] != '0') ? "fire exit" : "0";
-$amenitie15 = ($_GET['amenitie15'] != '0') ? "garden" : "0";
+$order = $_GET['order'];
 
-$sql_3 = "SELECT p.id,p.name,p.address,p.gender,p.rent,a.id,a.amenitie0, a.amenitie1, a.amenitie2, a.amenitie3, a.amenitie4, a.amenitie5, a.amenitie6, a.amenitie7, a.amenitie8, a.amenitie9, a.amenitie10, a.amenitie11, a.amenitie12, a.amenitie13, a.amenitie14, a.amenitie15
-            FROM amenities a
-            INNER JOIN properties p
-            ON a.id = p.id 
-            WHERE a.amenitie0='$amenitie0' OR a.amenitie1='$amenitie1' OR a.amenitie2='$amenitie2' OR a.amenitie3='$amenitie3' OR a.amenitie4='$amenitie4' OR a.amenitie5='$amenitie5' OR a.amenitie6='$amenitie6' OR a.amenitie7='$amenitie7' OR a.amenitie8='$amenitie8' OR a.amenitie9='$amenitie9' OR a.amenitie10='$amenitie10' OR a.amenitie11='$amenitie11' OR a.amenitie12='$amenitie12' OR a.amenitie13='$amenitie13' OR a.amenitie14='$amenitie14' OR a.amenitie15='$amenitie15';";
-
+if ($order == 1) {
+    $sql_3 = "SELECT * FROM `properties` ORDER BY `properties`.`rent` ASC";
+} else {
+    $sql_3 = "SELECT * FROM `properties` ORDER BY `properties`.`rent` DESC";
+}
 $result_3 = mysqli_query($conn, $sql_3);
 if (!$result_3) {
     echo "---Something went wrong!---";
@@ -48,7 +32,7 @@ $properties = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <link href="css/extra.css" rel="stylesheet" />
 </head>
 
-<body  class="anim" style="color: black;">
+<body class="anim" style="color: black;">
     <?php
     include "includes/header.php";
     ?>

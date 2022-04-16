@@ -14,7 +14,7 @@
                 if (!isset($_SESSION["user_id"])) {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/admin.php">
+                        <a class="nav-link" href="admin/admin.php" target="blank">
                             <i class="fas fa-user"></i>Admin Login
                         </a>
                     </li>

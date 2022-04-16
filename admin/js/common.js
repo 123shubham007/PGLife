@@ -47,7 +47,7 @@ window.addEventListener("load", function() {
         var form_data = new FormData(hostel_form);
 
         // On success
-        XHR.addEventListener("load", login_success);
+        XHR.addEventListener("load", hostel_success);
 
         // On error
         XHR.addEventListener("error", on_error);
@@ -91,7 +91,6 @@ var hostel_success = function(event) {
 
     var response = JSON.parse(event.target.responseText);
     if (response.success) {
-        alert(response.message);
         location.reload();
     } else {
         alert(response.message);

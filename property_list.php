@@ -12,21 +12,25 @@ if (!$result_1) {
 $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
 ?>
 <div class="page-container">
-    <div class="filter-bar row justify-content-around">
-        <div class="col-auto a1" style="padding: 10px;" data-toggle="modal" data-target="#filter-modal">
+    <div class="filter-bar row justify-content-around a1" style="margin:auto; max-width:600px; font-weight: bold;">
+        <div class="col-auto" style="margin: 10px;" data-toggle="modal" data-target="#filter-modal">
             <img src="img/filter.png" alt="filter" />
             <span>Filter</span>
         </div>
-        <!-- <div class="col-auto">
-            <img src="img/desc.png" alt="sort-asc" />
-            <span>Highest rent first</span>
+        <div class="col-auto" style="margin: 10px;">
+            <a class="btn" style="padding: 0rem;" href="filter1.php?order=1">
+                <img src="img/desc.png" alt="sort-asc" />
+                <span>Highest rent first</span>
+            </a>
         </div>
-        <div class="col-auto">
-            <img src="img/asc.png" alt="sort-desc" />
-            <span>Lowest rent first</span>
-        </div> -->
+        <div class="col-auto" style="margin: 10px;">
+            <a class="btn" style="padding: 0rem;" href="filter1.php?order=2">
+                <img src="img/asc.png" alt="sort-desc" />
+                <span>Lowest rent first</span>
+            </a>
+        </div>
     </div>
-
+    <br /><br />
     <?php
     foreach ($properties as $property) {
         $property_images = glob("img/properties/" . $property['id'] . "/*");
@@ -42,7 +46,7 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                     <div class="property-address"><?= $property['address'] ?></div>
                     <div class="property-gender">
                         <?php
-                        if ($property['gender'] == "Male") {
+                        if ($property['gender'] == "male") {
                         ?>
                             <img src="img/male.png" />
                         <?php
@@ -83,57 +87,73 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                 <form id="search-form" action="filter.php" method="GET">
                     <div class="row justify-content-between">
                         <div class="col-md-auto">
+                            <input type="hidden" id="amenitie0" name="amenitie0" value="0">
                             <input type="checkbox" id="amenitie0" name="amenitie0" value="cctv">
                             <label for="amenitie0">CCTV</label><br>
+                            <input type="hidden" id="amenitie1" name="amenitie1" value="0">
                             <input type="checkbox" id="amenitie1" name="amenitie1" value="ac">
                             <label for="amenitie1">AC</label><br>
+                            <input type="hidden" id="amenitie2" name="amenitie2" value="0">
                             <input type="checkbox" id="amenitie2" name="amenitie2" value="bed">
                             <label for="amenitie2">Single Sharing</label><br>
+                            <input type="hidden" id="amenitie3" name="amenitie3" value="0">
                             <input type="checkbox" id="amenitie3" name="amenitie3" value="double bed">
                             <label for="amenitie3">Double Sharing</label><br>
                         </div>
                         <div class="col-md-auto">
+                            <input type="hidden" id="amenitie4" name="amenitie4" value="0">
                             <input type="checkbox" id="amenitie4" name="amenitie4" value="dining">
                             <label for="amenitie4">Dining Hall</label><br>
+                            <input type="hidden" id="amenitie5" name="amenitie5" value="0">
                             <input type="checkbox" id="amenitie5" name="amenitie5" value="gym">
                             <label for="amenitie5">GYM</label><br>
+                            <input type="hidden" id="amenitie6" name="amenitie6" value="0">
                             <input type="checkbox" id="amenitie6" name="amenitie6" value="lift">
                             <label for="amenitie6">Lift</label><br>
+                            <input type="hidden" id="amenitie7" name="amenitie7" value="0">
                             <input type="checkbox" id="amenitie7" name="amenitie7" value="parking">
                             <label for="amenitie7">Parking</label><br>
                         </div>
                         <div class="col-md-auto">
+                            <input type="hidden" id="amenitie8" name="amenitie8" value="0">
                             <input type="checkbox" id="amenitie8" name="amenitie8" value="powerbackup">
                             <label for="amenitie8">Power Backup</label><br>
+                            <input type="hidden" id="amenitie9" name="amenitie9" value="0">
                             <input type="checkbox" id="amenitie9" name="amenitie9" value="washing machine">
                             <label for="amenitie9">Washing Machine</label><br>
+                            <input type="hidden" id="amenitie10" name="amenitie10" value="0">
                             <input type="checkbox" id="amenitie10" name="amenitie10" value="geyser">
                             <label for="amenitie10">Geyser</label><br>
+                            <input type="hidden" id="amenitie11" name="amenitie11" value="0">
                             <input type="checkbox" id="amenitie11" name="amenitie11" value="rowater">
                             <label for="amenitie11">RO water</label><br>
                         </div>
                         <div class="col-md-auto">
+                            <input type="hidden" id="amenitie12" name="amenitie12" value="0">
                             <input type="checkbox" id="amenitie12" name="amenitie12" value="tv">
                             <label for="amenitie12">TV</label><br>
+                            <input type="hidden" id="amenitie13" name="amenitie13" value="0">
                             <input type="checkbox" id="amenitie13" name="amenitie13" value="wifi">
                             <label for="amenitie13">WiFi</label><br>
+                            <input type="hidden" id="amenitie14" name="amenitie14" value="0">
                             <input type="checkbox" id="amenitie14" name="amenitie14" value="fire exit">
                             <label for="amenitie14">Fire Exit</label><br>
+                            <input type="hidden" id="amenitie15" name="amenitie15" value="0">
                             <input type="checkbox" id="amenitie15" name="amenitie15" value="garden">
                             <label for="amenitie15">Garden</label><br>
                         </div>
                     </div>
+                    <div class="modal-footer" style="padding: 0px;">
+                        <p>
+                            <button class="cta" type="submit">
+                                <span class="hover-underline-animation"> Continue </span>
+                                <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                                </svg>
+                            </button>
+                        </p>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer" style="padding: 0px;">
-                <p>
-                    <button class="cta" type="submit">
-                        <span class="hover-underline-animation"> Continue </span>
-                        <!-- <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
-                            <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                        </svg> -->
-                    </button>
-                </p>
             </div>
         </div>
     </div>

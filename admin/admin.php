@@ -149,17 +149,18 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
             <?php
             } else {
                 include "card.php";
+                // include "token.php";
             }
             ?>
             <!-- add hostel -->
             <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Add Hostel </h2><br />
             <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php">
                 <p><input type="hidden" name="user_id" value="<?= $_SESSION["user_id"] ?>"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name Of Hostel" required name="name"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Address" required name="address"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Rent per Month" required name="rent"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name Of Hostel" required name="name"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Address" required name="address"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Rent per Month" required name="rent"></p>
 
-                <div class="form-group w3-padding-16 a1" style="text-align: center;">
+                <div class="form-group w3-padding-16 a2" style="text-align: center; color:black">
                     <span>Hostel for</span>
                     <input type="radio" class="ml-3" id="gender-male" name="gender" value="male" />
                     <label for="gender-male">
@@ -259,10 +260,10 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : NULL;
             <p>Let's get in touch. Send me a message:</p>
 
             <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Subject" required name="Subject"></p>
-                <p><input class="w3-input w3-padding-16 a1" type="text" placeholder="Message" required name="Message"></p><br />
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name" required name="Name"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Email" required name="Email"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Subject" required name="Subject"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Message" required name="Message"></p><br />
                 <p>
                     <button class="fancy" type="submit">
                         <span class="top-key"></span>

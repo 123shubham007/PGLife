@@ -90,6 +90,12 @@ body {
     border-radius: 20px;
 }
 
+.a2 {
+    background-color: #ffffff60;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
 .property-card {
     box-shadow: 0 2px 5px 0 rgb(0, 0, 0), 0 2px 10px 0 rgb(0, 0, 0);
 }
