@@ -20,32 +20,22 @@ $row_count = mysqli_num_rows($result_1);
 if ($row_count != 0) {
     foreach ($user as $u) {
 ?>
-        <div class="property-card property-id-<?= $u['id'] ?> row" style="align-items: center; margin-left: auto; margin-right: auto; color: black">
-            <div class="content-container col-md-auto">
-                <div class="detail-container">
-                    <div class="property-name"><?= $u['name'] ?></div>
-                    <div class="property-address"><?= $u['email'] ?></div>
-                    <div class="property-gender">
-                        <?php
-                        if ($u['gender'] == "male") {
-                        ?>
-                            <img src="img/male.png" />
-                        <?php
-                        } else {
-                        ?>
-                            <img src="img/female.png" />
-                        <?php
-                        }
-                        ?>
-                    </div>
+        <div class="my-profile page-container a" style="padding: 50px">
+            <h1>My Profile</h1>
+            <div class="row">
+                <div class="col-md-3 profile-img-container">
+                    <i class="fas fa-user profile-img"></i>
                 </div>
-                <div class="row no-gutters">
-                    <div class="rent-container col-9">
-                        <div class="rent">₹ <?= number_format($u['phone']) ?>/-</div>
-                    </div>
-                    <!-- edit hostel code -->
-                    <div class="button-container col-3">
-                        <button class="b" href="#" data-toggle="modal" data-target="#edit-modal">Edit</a>
+                <div class="col-md-9">
+                    <div class="row no-gutters justify-content-between align-items-end text-bold">
+                        <div class="profile">
+                            <div class="name"><?= $u['full_name'] ?></div>
+                            <div class="email"><?= $u['email'] ?></div>
+                            <div class="phone"><?= $u['phone'] ?></div>
+                        </div>
+                        <div class="edit">
+                            <div class="edit-profile">Edit Profile</div>
+                        </div>
                     </div>
                 </div>
             </div>
