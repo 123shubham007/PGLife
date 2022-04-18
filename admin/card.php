@@ -1,7 +1,7 @@
 <?php
-$id = $_SESSION["user_id"];
+$user_id = $_SESSION["user_id"];
 $sql_1 = "SELECT * FROM adminproperty ap INNER JOIN properties p ON ap.properties_id = p.id 
-        INNER JOIN admin a ON ap.admin_id = a.id WHERE ap.admin_id = $id";
+         WHERE ap.admin_id = $user_id";
 
 $result_1 = mysqli_query($conn, $sql_1);
 if (!$result_1) {
@@ -38,13 +38,15 @@ if ($row_count != 0) {
                     </div>
                 </div>
                 <div class="row no-gutters">
-                    <div class="rent-container col-9">
+                    <div class="rent-container col-8">
                         <div class="rent">₹ <?= number_format($property['rent']) ?>/-</div>
                         <div class="rent-unit">per month</div>
                     </div>
                     <!-- edit hostel code -->
-                    <div class="button-container col-3">
-                        <button class="b" href="#" data-toggle="modal" data-target="#edit-modal">Edit</a>
+                    <div class="button-container col-4">
+                        <a class="b btn" href="edit.php?id=<?= $property['id'] ?>">
+                            Edit
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <?php
 require("../includes/database_connect.php");
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 $name = $_POST['name'];
 $rent = $_POST['rent'];
 $address = $_POST['address'];
@@ -23,10 +23,10 @@ $amenitie13 = $_POST['amenitie13'];
 $amenitie14 = $_POST['amenitie14'];
 $amenitie15 = $_POST['amenitie15'];
 
-$sql = "UPDATE `properties` SET `name`='$name',`address`='$address',`gender`='$gender',`rent`='$rent' WHERE $id";
+$sql = "UPDATE `properties` SET `name`='$name',`address`='$address',`gender`='$gender',`rent`='$rent' WHERE id =$id";
 $result_1 = mysqli_query($conn, $sql);
 if (!$result_1) {
-    echo "Something went wrong!123---";
+    echo "Something went wrong!123---$id---";
 }
 
 // $sql_1 = "SELECT * FROM properties WHERE id = '$id'";
@@ -38,7 +38,8 @@ if (!$result_1) {
 // $id = mysqli_fetch_assoc($result);
 // $property_id = $id['id'];
 
-$sql_2 = "UPDATE `amenities` SET `amenitie0`='$amenitie0',`amenitie1`='$amenitie1',`amenitie2`='$amenitie2',`amenitie3`='$amenitie3',`amenitie4`='$amenitie4',`amenitie5`='$amenitie5',`amenitie6`='$amenitie6',`amenitie7`='$amenitie7',`amenitie8`='$amenitie8',`amenitie9`='$amenitie9',`amenitie10`='$amenitie10',`amenitie11`='$amenitie11',`amenitie12`='$amenitie12',`amenitie13`='$amenitie13',`amenitie14`='$amenitie14',`amenitie15`='$amenitie15' WHERE $id";
+$sql_2 = "UPDATE `amenities` SET `amenitie0`='$amenitie0',`amenitie1`='$amenitie1',`amenitie2`='$amenitie2',`amenitie3`='$amenitie3',`amenitie4`='$amenitie4',`amenitie5`='$amenitie5',`amenitie6`='$amenitie6',`amenitie7`='$amenitie7',`amenitie8`='$amenitie8',`amenitie9`='$amenitie9',`amenitie10`='$amenitie10',`amenitie11`='$amenitie11',`amenitie12`='$amenitie12',`amenitie13`='$amenitie13',`amenitie14`='$amenitie14',`amenitie15`='$amenitie15'
+         WHERE id = $id";
 $result_2 = mysqli_query($conn, $sql_2);
 if (!$result_2) {
     $response = array("success" => false, "message" => "Something went wrong!");
