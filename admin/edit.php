@@ -118,9 +118,9 @@ if (!$property) {
         </div>
 
 
-        <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Edit Hostel </h2><br />
-        <form id="hostel-form" class="form" role="form" method="post" action="api/edit_submit.php">
-            <p><input type="checkbox" id="id" name="id" value="<?=$id?>"><label for="id"><?=$id?></label><br></p>
+        <h2 class="w3-text-light-white" id="edit-heading" style="margin-top: 50px;"> Edit Hostel </h2><br />
+        <form id="edit-form" class="form" role="form" method="post" action="api/edit_submit.php">
+            <input type="hidden" id="id" name="id" value="<?= $id ?>">
             <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name Of Hostel" required name="name"></p>
             <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Address" required name="address"></p>
             <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Rent per Month" required name="rent"></p>

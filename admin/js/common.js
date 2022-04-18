@@ -61,6 +61,27 @@ window.addEventListener("load", function() {
         document.getElementById("loading").style.display = 'block';
         event.preventDefault();
     });
+
+    var edit_form = document.getElementById("edit-form");
+    edit_form.addEventListener("submit", function(event) {
+        var XHR = new XMLHttpRequest();
+        var form_data = new FormData(edit_form);
+
+        // On success
+        XHR.addEventListener("load", edit_success);
+
+        // On error
+        XHR.addEventListener("error", on_error);
+
+        // Set up request
+        XHR.open("POST", "api/edit_submit.php");
+
+        // Form data is sent with request
+        XHR.send(form_data);
+
+        document.getElementById("loading").style.display = 'block';
+        event.preventDefault();
+    });
 });
 
 var signup_success = function(event) {
@@ -91,6 +112,18 @@ var hostel_success = function(event) {
 
     var response = JSON.parse(event.target.responseText);
     if (response.success) {
+        location.reload();
+    } else {
+        alert(response.message);
+    }
+};
+
+var edit_success = function(event) {
+    document.getElementById("loading").style.display = 'none';
+
+    var response = JSON.parse(event.target.responseText);
+    if (response.success) {
+        alert(response.message);
         location.reload();
     } else {
         alert(response.message);
