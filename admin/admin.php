@@ -3,6 +3,18 @@ session_start();
 require "includes/database_connect.php";
 
 $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
+if ($admin_id) {
+    $sql_1 = "SELECT * FROM adminproperty ap INNER JOIN properties p ON ap.properties_id = p.id 
+         WHERE ap.admin_id = $admin_id";
+
+    $result_1 = mysqli_query($conn, $sql_1);
+    if (!$result_1) {
+        echo "Something went wrong!123";
+        return;
+    }
+    $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
+    $row_count = mysqli_num_rows($result_1);
+}
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +83,7 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
     include "includes/header.php";
     ?>
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center" style="font-weight: bold;">
         <!-- Avatar image in top left corner -->
         <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-white margin">
             <i class="fa fa-home w3-xlarge"></i>
@@ -82,8 +94,12 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
             <p>ABOUT</p>
         </a>
         <a href="#add" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
-            <i class="fa fa-building w3-xlarge"></i>
+            <i class="fas fa-building w3-xlarge"></i>
             <p>HOSTEL</p>
+        </a>
+        <a href="#add1" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+            <i class="far fa-building w3-xlarge"></i>
+            <p>+ HOSTEL</p>
         </a>
         <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
             <i class="fa fa-envelope w3-xlarge"></i>
@@ -97,6 +113,7 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
             <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
             <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
             <a href="#add" class="w3-bar-item w3-button" style="width:25% !important">ADD</a>
+            <a href="#add1" class="w3-bar-item w3-button" style="width:25% !important">ADD</a>
             <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
         </div>
     </div>
@@ -143,20 +160,24 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
             <!-- card -->
             <?php
             //Check if user is loging or not
-            if (!isset($_SESSION["admin_id"])) {
+            if ($admin_id) {
+                if ($row_count == 0) {
             ?>
-                <p class="a1" style="padding: 20px; color: white;">No Hostel Added</p>
+                    <p class="a1" style="padding: 20px; color: white;">No Hostel Added</p>
+                <?php
+                } else {
+                    include "card.php";
+                ?>
+                    <br />
+                    <h3 class="w3-text-light-white"> Token Raised - </h3>
             <?php
-            } else {
-                include "card.php";
-            ?>
-                <br />
-                <h3 class="w3-text-light-white"> Token Raised - </h3>
-            <?php
-                include "token.php";
+                    include "token.php";
+                }
             }
             ?>
-            <!-- add hostel -->
+        </div>
+        <!-- add hostel -->
+        <div class="w3-padding-64 w3-content w3-text-white" id="add1">
             <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Add Hostel </h2><br />
             <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php" enctype="multipart/form-data">
                 <p><input type="hidden" name="admin_id" value="<?= $admin_id ?>"></p>
@@ -224,7 +245,13 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
                 </div>
                 <!--checkbox end-->
                 <br />
-                <input type="file" name="file">
+                <div class="form-group w3-padding-16 a2" style="text-align: center; color:black; margin-bottom:auto;">
+                    <p style="margin-bottom: 0px;">
+                        Add image of the property :
+                        <input type="file" name="file" require>
+                    </p>
+                </div>
+                <br />
                 <p>
                     <?php
                     //Check if user is loging or not
