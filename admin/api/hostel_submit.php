@@ -1,7 +1,7 @@
 <?php
 require("../includes/database_connect.php");
 
-$user_id = $_POST['user_id'];
+$admin_id = $_POST['admin_id'];
 $name = $_POST['name'];
 $rent = $_POST['rent'];
 $address = $_POST['address'];
@@ -58,7 +58,7 @@ if (!$result_2) {
     echo "Something went wrong!123";
 }
 
-$sql_3 = "INSERT INTO `adminproperty`(`admin_id`,`properties_id`) VALUE ('$user_id','$property_id')";
+$sql_3 = "INSERT INTO `adminproperty`(`admin_id`,`properties_id`) VALUE ('$admin_id','$property_id')";
 $result_3 = mysqli_query($conn, $sql_3);
 if (!$result_3) {
     $response = array("success" => false, "message" => "Something went wrong!");

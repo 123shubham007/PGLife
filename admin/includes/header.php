@@ -11,7 +11,7 @@
             <ul class="navbar-nav">
                 <?php
                 //Check if user is loging or not
-                if (!isset($_SESSION["user_id"])) {
+                if (!isset($_SESSION["admin_id"])) {
                 ?>
                     <div class="nav-vl"></div>
                     <li class="nav-item">

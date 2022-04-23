@@ -1,7 +1,7 @@
 <?php
-$user_id = $_SESSION["user_id"];
+$admin_id = $_SESSION["admin_id"];
 $sql_1 = "SELECT * FROM adminproperty ap INNER JOIN booking b ON ap.properties_id = b.property_id 
-            WHERE ap.admin_id = $user_id;";
+            WHERE ap.admin_id = $admin_id;";
 
 $result = mysqli_query($conn, $sql_1);
 if (!$result) {
