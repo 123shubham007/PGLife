@@ -66,6 +66,38 @@ if (!$result_3) {
     return;
 }
 
+$file = $_FILES['file'];
+print_r($file);
+$fileName = $_FILES['file']['name'];
+$fileTemName = $_FILES['file']['tmp_name'];
+$fileSize = $_FILES['file']['size'];
+$fileError = $_FILES['file']['error'];
+$fileType = $_FILES['file']['type'];
+
+$fileExt = explode('.', $fileName);
+$fileActualExt = strtolower(end($fileExt));
+
+$allowed = array('png');
+
+if (in_array($fileActualExt, $allowed)) {
+    if ($fileError === 0) {
+        if ($fileSize < 500000) {
+            $fileNameNew = "profile" . $property_id . "." . $fileActualExt;
+            $fileDestination = '../img/properties/' . $fileNameNew;
+            move_uploaded_file($fileTemName, $fileDestination);
+            $sql = "INSERT INTO images (property_id , status) VALUES ('$property_id' , '0')";
+            $result = mysqli_query($conn, $sql);
+            header("location:admin.php?uploadsuccess");
+        } else {
+            echo "Your image is to big!";
+        }
+    } else {
+        echo "There was an error uploading your file!";
+    }
+} else {
+    echo "You cannot Upload Image of this type!";
+}
+
 $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
 echo json_encode($response);
 mysqli_close($conn);

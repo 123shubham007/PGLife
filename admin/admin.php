@@ -150,14 +150,15 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
             } else {
                 include "card.php";
             ?>
-                <br /><h3 class="w3-text-light-white"> Token Raised - </h3>
+                <br />
+                <h3 class="w3-text-light-white"> Token Raised - </h3>
             <?php
                 include "token.php";
             }
             ?>
             <!-- add hostel -->
             <h2 class="w3-text-light-white" id="hostel-heading" style="margin-top: 50px;"> Add Hostel </h2><br />
-            <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php">
+            <form id="hostel-form" class="form" role="form" method="post" action="api/hostel_submit.php" enctype="multipart/form-data">
                 <p><input type="hidden" name="admin_id" value="<?= $admin_id ?>"></p>
                 <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name Of Hostel" required name="name"></p>
                 <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Address" required name="address"></p>
@@ -223,12 +224,13 @@ $admin_id = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : NULL;
                 </div>
                 <!--checkbox end-->
                 <br />
+                <input type="file" name="file">
                 <p>
                     <?php
                     //Check if user is loging or not
                     if (isset($_SESSION["admin_id"])) {
                     ?>
-                        <button class="fancy" type="submit">
+                        <button class="fancy" type="submit" name="submit">
                             <span class="top-key"></span>
                             <span class="text">ADD To PGLife</span>
                             <span class="bottom-key-1"></span>

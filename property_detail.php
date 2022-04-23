@@ -65,7 +65,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <div id="property-images" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php
-            $property_images = glob("img/properties/" . $property['id'] . "/*");
+            $property_images = glob("admin/img/properties/profile" . $property['id'] . ".png");
             foreach ($property_images as $index => $property_image) {
             ?>
                 <li data-target="#property-images" data-slide-to="<?= $index ?>" class="<?= $index == 0 ? "active" : ""; ?>"></li>
