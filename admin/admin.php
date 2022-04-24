@@ -291,11 +291,11 @@ if ($admin_id) {
             </div><br>
             <p>Let's get in touch. Send me a message:</p>
 
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Subject" required name="Subject"></p>
-                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Message" required name="Message"></p><br />
+            <form id="email-form" method="post" action="mailto:shubhamkumar.123.sk001@gmail.com" enctype="text/plain">
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Name" required></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Email" required></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Subject" required name="Mail Regarding"></p>
+                <p><input class="w3-input w3-padding-16 a2" type="text" placeholder="Message" required></p><br />
                 <p>
                     <button class="fancy" type="submit">
                         <span class="top-key"></span>
