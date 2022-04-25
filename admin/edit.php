@@ -83,12 +83,9 @@ if (!$property) {
     include "includes/header.php";
     ?>
     <div class="w3-padding-64 w3-content w3-text-white" id="add">
-        <?php
-        $property_images = glob("img/properties/" . $property['id'] . "/*");
-        ?>
         <div class="property-card property-id-<?= $property['id'] ?> row" style="align-items: center; margin-left: auto; margin-right: auto; color: black">
             <div class="image-container col-md-4">
-                <img src="<?= $property_images[0] ?>" />
+                <img src="img/properties/profile<?= $property['id'] ?>.png" />
             </div>
             <div class="content-container col-md-8">
                 <div class="detail-container">
@@ -211,3 +208,7 @@ if (!$property) {
             </p>
         </form>
     </div>
+    <script type="text/javascript" src="js/common.js"></script>
+</body>
+
+</html>

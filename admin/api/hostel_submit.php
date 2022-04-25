@@ -98,6 +98,7 @@ if (in_array($fileActualExt, $allowed)) {
     echo "You cannot Upload Image of this type!";
 }
 
+header("Location : ../admin.php");
 $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
 echo json_encode($response);
 mysqli_close($conn);

@@ -292,6 +292,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                                 </span>
                             </div>
                             <p><input type="hidden" name="properties_id" value="<?= $property_id ?>"></p>
+                            <p><input type="hidden" name="user_id" value="<?= $user_id ?>"></p>
                             <input type="text" class="form-control" name="full_name" placeholder="Full Name" maxlength="30" required>
                         </div>
 
@@ -314,7 +315,7 @@ $amenities = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-block btn-primary">Okay</button>
+                            <button type="submit" class="btn btn-block btn-primary" name="submit">Okay</button>
                         </div>
                     </form>
                 </div>

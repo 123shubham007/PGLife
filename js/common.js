@@ -91,6 +91,7 @@ var booking_success = function(event) {
 
     var response = JSON.parse(event.target.responseText);
     if (response.success) {
+        alert(response.message);
         location.reload();
     } else {
         alert(response.message);

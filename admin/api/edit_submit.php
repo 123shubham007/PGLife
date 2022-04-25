@@ -29,11 +29,11 @@ if (!$result_1) {
     echo "Something went wrong!123---$id---";
 }
 
-// $sql_1 = "SELECT * FROM properties WHERE id = '$id'";
-// $result = mysqli_query($conn, $sql_1);
-// if (!$result) {
-//     echo "Something went wrong!123";
-// }
+$sql_1 = "UPDATE `properties` SET `approve`='0' WHERE $id;";
+$result = mysqli_query($conn, $sql_1);
+if (!$result) {
+    echo "Something went wrong!123";
+}
 
 // $id = mysqli_fetch_assoc($result);
 // $property_id = $id['id'];
@@ -46,7 +46,7 @@ if (!$result_2) {
     echo json_encode($response);
     return;
 }
-
+header("Location: ../admin.php");
 $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
 echo json_encode($response);
 mysqli_close($conn);

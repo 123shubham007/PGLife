@@ -14,23 +14,34 @@ if ($row_count != 0) {
     foreach ($properties as $property) {
 ?>
         <div class="property-card property-id-<?= $property['id'] ?> row" style="align-items: center; margin-left: auto; margin-right: auto; color: black">
-            <div class="image-container col-md-4">
+            <div class="image-container col-md-4" style="margin: auto;">
                 <img src="img/properties/profile<?= $property['id'] ?>.png" />
             </div>
             <div class="content-container col-md-8">
+                <div class="row no-gutters">
+                    <div class="detail-container col-11">
+                        <div class="property-name"><?= $property['name'] ?></div>
+                        <div class="property-address"><?= $property['address'] ?></div>
+                        <div class="property-gender">
+                            <?php
+                            if ($property['gender'] == "male") {
+                            ?>
+                                <img src="img/male.png" />
+                            <?php
+                            } else {
+                            ?>
+                                <img src="img/female.png" />
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="button-container col-1">
+                        <?php
+                        if ($property['approve'] == 1) {
+                        ?>
+                            <img src="img/approve.gif" style="width:40px">
 
-                <div class="detail-container">
-                    <div class="property-name"><?= $property['name'] ?></div>
-                    <div class="property-address"><?= $property['address'] ?></div>
-                    <div class="property-gender">
-                        <?php
-                        if ($property['gender'] == "male") {
-                        ?>
-                            <img src="img/male.png" />
-                        <?php
-                        } else {
-                        ?>
-                            <img src="img/female.png" />
                         <?php
                         }
                         ?>

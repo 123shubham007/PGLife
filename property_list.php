@@ -35,23 +35,33 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
     foreach ($properties as $property) {
     ?>
         <div class="property-card property-id-<?= $property['id'] ?> row">
-            <div class="image-container col-md-4">
+            <div class="image-container col-md-4" style="margin: auto;">
                 <img src="admin/img/properties/profile<?= $property['id'] ?>.png" />
             </div>
             <div class="content-container col-md-8">
-
-                <div class="detail-container">
-                    <div class="property-name"><?= $property['name'] ?></div>
-                    <div class="property-address"><?= $property['address'] ?></div>
-                    <div class="property-gender">
+                <div class="row no-gutters">
+                    <div class="detail-container col-11">
+                        <div class="property-name"><?= $property['name'] ?></div>
+                        <div class="property-address"><?= $property['address'] ?></div>
+                        <div class="property-gender">
+                            <?php
+                            if ($property['gender'] == "male") {
+                            ?>
+                                <img src="img/male.png" />
+                            <?php
+                            } else {
+                            ?>
+                                <img src="img/female.png" />
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="button-container col-1">
                         <?php
-                        if ($property['gender'] == "male") {
+                        if ($property['approve'] == 1) {
                         ?>
-                            <img src="img/male.png" />
-                        <?php
-                        } else {
-                        ?>
-                            <img src="img/female.png" />
+                            <img src="img/approve.gif" style="width:40px">
                         <?php
                         }
                         ?>
@@ -63,7 +73,7 @@ $properties = mysqli_fetch_all($result_1, MYSQLI_ASSOC);
                         <div class="rent-unit">per month</div>
                     </div>
                     <div class="button-container col-3">
-                        <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="b">View</a>
+                        <a href="property_detail.php?property_id=<?= $property['id'] ?>" class="b btn">View</a>
                     </div>
                 </div>
             </div>
