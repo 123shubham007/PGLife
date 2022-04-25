@@ -80,7 +80,7 @@ if ($row_count != 0) {
                     <div class="button-container col-3">
                         <form id="form" class="form" role="form" method="post" action="manage.php">
                             <input type="hidden" name="property_id" value="<?= $property['id'] ?>">
-                            <button class="noselect" type="submit" name="submit">
+                            <button class="noselect" type="submit" name="delete">
                                 <span class="text">Delete</span>
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

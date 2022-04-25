@@ -3,7 +3,7 @@ include "../admin/includes/database_connect.php";
 
 $property_id = $_POST['property_id'];
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['delete'])) {
     $sql = "DELETE FROM properties WHERE id = $property_id;";
     $result = mysqli_query($conn, $sql);
     if (!isset($result)) {
