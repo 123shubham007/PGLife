@@ -13,7 +13,7 @@ if ($row_count != 0) {
 ?>
         <div class="property-card property-id-<?= $property['id'] ?> row" style="align-items: center; margin-left: auto; margin-right: auto; color: black">
             <div class="image-container col-md-4" style="margin: auto;">
-                <img src="../admin/img/properties/profile<?= $property['id'] ?>.png" />
+                <img src="../img/properties/profile<?= $property['id'] ?>.png" />
             </div>
             <div class="content-container col-md-8">
                 <div class="row no-gutters">

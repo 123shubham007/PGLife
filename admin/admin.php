@@ -131,30 +131,9 @@ if ($admin_id) {
         <div class="w3-content w3-justify w3-text-white w3-padding-64" id="about">
             <h2 class="w3-text-light-white">About the Page:</h2>
             <hr style="width:200px" class="w3-opacity">
-            <p class="a1" style="padding: 20px;">Some text about PGLife.</p>
+            <p class="a1" style="padding: 20px;">PGLife is a site where you can show your Hostel or PG to students who want to book the Hostel or PG</p>
         </div><br>
-        <!-- Portfolio Section -->
-        <div class="w3-padding-64 w3-content w3-text-white">
-            <h2 class="w3-text-light-white">Photos</h2>
-            <hr style="width:200px" class="w3-opacity">
 
-            <!-- Grid for photos -->
-            <div class="w3-row-padding a1" style="margin:0 -16px;">
-                <div class="w3-half">
-                    <img src="img/logo.png" style="width:100%">
-                    <img src="img/logo.png" style="width:100%">
-                    <img src="img/logo.png" style="width:100%">
-                </div>
-
-                <div class="w3-half">
-                    <img src="img/logo.png" style="width:100%">
-                    <img src="img/logo.png" style="width:100%">
-                    <img src="img/logo.png" style="width:100%">
-                </div>
-                <!-- End photo grid -->
-            </div>
-            <!-- End Portfolio Section -->
-        </div>
         <div class="w3-padding-64 w3-content w3-text-white" id="add">
             <h2 class="w3-text-light-white" id="hostel-heading"> Hostel Added - </h2><br />
             <!-- card -->

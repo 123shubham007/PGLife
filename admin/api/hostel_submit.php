@@ -99,6 +99,6 @@ if (in_array($fileActualExt, $allowed)) {
 }
 
 header("Location : ../admin.php");
-$response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
-echo json_encode($response);
+// $response = array("success" => true, "message" => "Your Hostel has been Register successfully!");
+// echo json_encode($response);
 mysqli_close($conn);

@@ -1,5 +1,5 @@
 <?php
-include "../admin/includes/database_connect.php";
+include "../includes/database_connect.php";
 
 $property_id = $_POST['property_id'];
 

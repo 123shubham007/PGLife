@@ -48,18 +48,18 @@ $properties = mysqli_fetch_all($result_3, MYSQLI_ASSOC);
     <link href="css/extra.css" rel="stylesheet" />
 </head>
 
-<body  class="anim" style="color: black;">
+<body class="anim" style="color: black;">
     <?php
     include "includes/header.php";
     ?>
     <div class=" page-container">
         <?php
         foreach ($properties as $property) {
-            $property_images = glob("img/properties/" . $property['id'] . "/*");
+
         ?>
             <div class="property-card property-id-<?= $property['id'] ?> row">
                 <div class="image-container col-md-4">
-                    <img src="<?= $property_images[0] ?>" />
+                    <img src="admin/img/properties/profile<?= $property['id'] ?>.png" />
                 </div>
                 <div class="content-container col-md-8">
                     <div class="detail-container">
