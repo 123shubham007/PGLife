@@ -28,7 +28,7 @@ if ($row_count != 0) {
                             <?php
                             } else {
                             ?>
-                                <img src="img/female.png" />
+                                <img src="../img/female.png" />
                             <?php
                             }
                             ?>

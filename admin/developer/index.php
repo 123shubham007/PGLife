@@ -14,11 +14,11 @@ include "../includes/database_connect.php";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="../admin/css/property_list.css">
+    <link rel="stylesheet" href="../css/property_list.css">
     <?php
     include "head_links.php";
     ?>
-    <link rel="stylesheet" href="../admin/css/extra.css">
+    <link rel="stylesheet" href="../css/extra.css">
     <style>
         body,
         h1,
