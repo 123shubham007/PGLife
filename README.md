@@ -11,23 +11,5 @@ xampp/htdock/NEW_FOLDER/
 
 NOTE: You have to download xampp before runing the program.
 
-File Details:
-admin
-    api
-    - backend code for loging,sighup,booking and other types.
-    css
-    - stylesheet to design the webpage.
-    img
-    - images used in the webpage
-    includes
-    - some snippet codes.
-    js
-    - javascript file.
-    admin.php
-    - admin first page that will shown when you open the admin side page.
-    card.php
-    - create card for the admin after property is added.
-    edit.php
-    - open when you want to edit the webpage.
-    
-    ****** edit in progress *******
+#PHOTO
+![image](https://user-images.githubusercontent.com/60097271/166108547-1138cd08-5ec3-42cb-888b-f71a7b63b6a9.png)
