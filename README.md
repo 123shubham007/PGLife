@@ -11,7 +11,8 @@ xampp/htdock/NEW_FOLDER/
 
 NOTE: You have to download xampp before runing the program.
 
-#PHOTO
+#PHOTO 
+(NOTE: Background color is changing according to time, its dont have different color for different page)
 
 Home Page:
 
